@@ -20,15 +20,33 @@ contained in the Resources section below in order to do your development on
 ## Project Description
 
 Your goal is to implement a program that can stitch together muliple images in
-a number of artsy ways.
+a number of artsy ways. This project will make use of subtype polymorphism in order
+to make your code look nicer.
+
+Part of software development is being given a goal but not necessarily being 
+given instruction on all of the details needed to accomplish that goal. For example,
+even though image manipulation hasn't been covered in class, in order to complete this 
+project you are going to need to lookup how to load, interact with, and save images in Java.
 
 ## Project Tasks
 
 Before you submit your project, you need to perform the following tasks:
 
- 1. blah blah
+ 1. (10 points) Interface <code>cs1302.artsy.Artsy</code> class: Define this interface according to the 
+    UML diagram presented in the "Artsy Interface" section below.
+
+ 2. (20 points) Abstract <code>cs1302.artsy.ArtsyBase</code> class: This class implements most of the 
+    <code>Artsy</code> interface. This is to enable 
+
+ 3. (20 points) <code>cs1302.artsy.ArtsyCols</code> class: This class will extend the <code>ArtsyBase</code> class.
+
+ 4. (20 points) <code>cs1302.artsy.ArtsyRows</code> class: This class will extend the <code>ArtsyBase</code> class.
+
+ 5. (20 points) <code>cs1302.artsy.ArtsyDiags</code> class: This class will extend the <code>ArtsyBase</code> class.
+
+ 7. (10 points) <code>cs1302.artsy.Driver</code> class: This class will contain the <code>main</code> method. 
    
- 2. Update the <code>README.md</code> in your project directory (this file) to 
+ 6. Update the <code>README.md</code> in your project directory (this file) to 
     contain the following information at the top of the file (updating it with 
     your own information:
 
@@ -63,6 +81,10 @@ The are two main classes that you must learn about to work with images:
 Additionally, you may find the methods and constants availible in <code>java.awt.Color</code> useful for working
 with colors.
 
+## Artsy Interface
+
+
+
 ## Resources
 
 The files for this project are hosted Github using <code>git</code>. They can be
@@ -87,7 +109,8 @@ changes using commits and even revert to a previous revision if necessary.
 ## Directory Structure and Packages
 
 All of the non-test classes for this project should be contained in the 
-<code>src/main/java/</code> directory. These classes are in the default package.
+<code>src/main/java/cs1302/artsy</code> directory. 
+These classes are in the <code>cs1302.artsy</code> package.
 
 ## Build System
 
