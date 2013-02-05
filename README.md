@@ -19,7 +19,8 @@ contained in the Resources section below in order to do your development on
 
 ## Project Description
 
-Your goal is to implem
+Your goal is to implement a program that can stitch together muliple images in
+a number of artsy ways.
 
 ## Project Tasks
 
@@ -43,19 +44,32 @@ Before you submit your project, you need to perform the following tasks:
 
 You may earn extra credit for each of the tasks listed below:
 
- 1. (10 points extra credit) 
+ 1. (20 points extra credit) Provide a fourth artsy option called "Blue Screen" that takes in a background image
+    and a foreground image. The result of the artsy stitching should be the foreground image with every blue
+    (<code>java.awt.Color.BLUE</code>) pixel replaced with the corresponding pixel in the background image. If
+    the background image is smaller than the foreground image then some of the blue pixels in the foreground
+    will obviously remain blue. The two images should be aligned by their upper left hand corners.
 
-## Art Project
+## Working with Images
 
-test
+The are two main classes that you must learn about to work with images:
+
+ * The <code>java.awt.Image</code> class is the superclass that represents graphical images as rectangular 
+   arrays of pixels.
+ * The <code>java.awt.image.BufferedImage</code> class, which extends the Image class to allow the application 
+   to operate directly with image data (for example, retrieving or setting up the pixel color). Applications 
+   can directly construct instances of this class.
+
+Additionally, you may find the methods and constants availible in <code>java.awt.Color</code> useful for working
+with colors.
 
 ## Resources
 
 The files for this project are hosted Github using <code>git</code>. They can be
-retrieved by cloning the repository found at <code>git://github.com/mepcotterell-cs1302/cs1302-life.git</code>. 
+retrieved by cloning the repository found at <code>git://github.com/mepcotterell-cs1302/cs1302-artsy.git</code>. 
 For example, you can issue the following command to clone the repository:
 
-    $ git clone git://github.com/mepcotterell-cs1302/cs1302-life.git LastName-FirstName-p1
+    $ git clone git://github.com/mepcotterell-cs1302/cs1302-artsy.git LastName-FirstName-p2
 
 As always, I suggest developing directly on <code>nike.cs.uga.edu</code> because
 this is where your project will be run and tested. Since <code>git</code> is 
@@ -86,7 +100,7 @@ In order to compile your project, you can use the following command:
 
 To run your project, use the following command:
 
-    $ ./sbt "run Driver seeds/seedFile"
+    $ ./sbt run
 
 In order to clean your project (remove compiled code), use the following command:
 
