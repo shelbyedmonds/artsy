@@ -152,6 +152,15 @@ produce the Result image when an Artsy effect is applied. Here is an example:
 That pretty much sums it up. If you have any questions, feel free to consult the instructor or
 the TAs.
 
+## Suggestions
+
+I would suggest breaking up your interface into multiple classes as needed in order to reduce repetition.
+For example, you know that there are three images, each with their own "rotate" and "reset" buttons.
+Why not create a class that extends <code>JPanel</code> that contains a place to hold an image as well
+as those two buttons (and probably some other methods for opening a file, etc.)? That way,
+you only write the code once (instead of three times) and you simply create three different objects
+of that class to add to your GUI.
+
 ## Resources
 
 The files for this project are hosted Github using <code>git</code>. They can be
