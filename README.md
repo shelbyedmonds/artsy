@@ -52,7 +52,7 @@ Before you submit your project, you need to perform the following tasks:
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
    
- 6. Update the <code>README.md</code> in your project directory (this file) to 
+#### Update the <code>README.md</code> in your project directory (this file) to 
     contain the following information at the top of the file (updating it with 
     your own information:
 
@@ -68,11 +68,8 @@ Before you submit your project, you need to perform the following tasks:
 
 You may earn extra credit for each of the tasks listed below:
 
- 1. (20 points extra credit) Provide a fourth artsy option called "Blue Screen" that takes in a background image
-    and a foreground image. The result of the artsy stitching should be the foreground image with every blue
-    (<code>java.awt.Color.BLUE</code>) pixel replaced with the corresponding pixel in the background image. If
-    the background image is smaller than the foreground image then some of the blue pixels in the foreground
-    will obviously remain blue. The two images should be aligned by their upper left hand corners.
+ 1. (20 points extra credit) Make it so that when the user enters 
+ <code>↑</code><code>↑</code><code>↓</code>↓</code><code>←</code><code>→</code><code>←</code><code>→<code>B</code><code>A</code>, 
 
 ## Working with Images
 
