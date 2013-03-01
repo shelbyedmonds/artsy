@@ -198,11 +198,9 @@ changes using commits and even revert to a previous revision if necessary.
 
 ## Directory Structure and Packages
 
-The <code>Artsy</code> interface is contained in the <code>cs1302.artsy</code> package under the <code>src/main/java/cs1302/artsy</code> directory. The 
-
-All of the non-test classes for this project should be contained in the 
-<code>src/main/java/cs1302/artsy</code> directory. 
-These classes are in the <code>cs1302.artsy</code> package.
+The <code>Artsy</code> interface is contained in the <code>cs1302.artsy</code> package under the <code>src/main/java/cs1302/artsy</code> directory. The other classes of interest for this project should be contained in the 
+<code>src/main/java/cs1302/p2</code> directory. 
+These classes are in the <code>cs1302.p2</code> package.
 
 ## Build System
 
