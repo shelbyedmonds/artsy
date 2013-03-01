@@ -33,7 +33,7 @@ project you are going to need to lookup how to load, interact with, and save ima
 
 Before you submit your project, you need to perform the following tasks:
 
- 1. (30 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
+#### (30 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
  
    * (10 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
@@ -41,29 +41,16 @@ Before you submit your project, you need to perform the following tasks:
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
- 2. (20 points) Write unit tests for at least two of the methods in the <code>Artsy</code> and use those unit tests to test your <code>MyArtsy</code> class.
+#### (20 points) Write unit tests for at least two of the methods in the <code>Artsy</code> and use those unit tests to test your <code>MyArtsy</code> class.
  
    * (10 points) Two unit tests are properly written and JavaDoc comments are included that explain how the tests work.
    * (10 points) Your <code>MyArtsy</code> class passes the unit tests.
  
- 3. (50 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document.
+#### (50 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document.
  
    * (10 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
-   * (20 points) The image panels work as described in this document.
-
-
-
- 2. (20 points) Abstract <code>cs1302.artsy.ArtsyBase</code> class: This class implements most of the 
-    <code>Artsy</code> interface. This is to enable 
-
- 3. (20 points) <code>cs1302.artsy.ArtsyCols</code> class: This class will extend the <code>ArtsyBase</code> class.
-
- 4. (20 points) <code>cs1302.artsy.ArtsyRows</code> class: This class will extend the <code>ArtsyBase</code> class.
-
- 5. (20 points) <code>cs1302.artsy.ArtsyDiags</code> class: This class will extend the <code>ArtsyBase</code> class.
-
- 7. (10 points) <code>cs1302.artsy.Driver</code> class: This class will contain the <code>main</code> method. 
+   * (20 points) The image panels work as described in this document. 
    
  6. Update the <code>README.md</code> in your project directory (this file) to 
     contain the following information at the top of the file (updating it with 
