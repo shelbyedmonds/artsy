@@ -28,27 +28,25 @@ Part of software development is being given a goal but not necessarily being
 given instruction on all of the details needed to accomplish that goal. For example,
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
+Also, since this is your first project with Swing, you will probably need to consult the 
+Oracle tutorials and definitely the JavaDoc for assistance. 
 
 ## Project Tasks
 
 Before you submit your project, you need to perform the following tasks:
 
-#### (30 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
+#### (40 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
+Information about the implementation details can be found 
  
-   * (10 points) The <code>doRotate</code> method is implemented correctly.
+   * (15 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
    * (5 points) The <code>doHorizontalStripes</code> method is implemented correctly.
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
-#### (20 points) Write unit tests for at least two of the methods in the <code>Artsy</code> and use those unit tests to test your <code>MyArtsy</code> class.
+#### (60 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document. The entry point to your program must be in the <code>main</code> method of the <code>cs1302.p2.Driver</code> class.
  
-   * (10 points) Two unit tests are properly written and JavaDoc comments are included that explain how the tests work.
-   * (10 points) Your <code>MyArtsy</code> class passes the unit tests.
- 
-#### (50 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document.
- 
-   * (10 points) The menu bar works as described in this document.
+   * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
    
@@ -69,7 +67,7 @@ Before you submit your project, you need to perform the following tasks:
 You may earn extra credit for each of the tasks listed below:
 
  1. (20 points extra credit) Make it so that when the user enters 
- <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code>, a dialog box appears with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat).
+ <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I recommend that you keep your picture of Grumpy Cat in the <code>resources</code> directory.
 
 ## Working with Images
 
@@ -86,7 +84,27 @@ with colors.
 
 ## Artsy Interface
 
+Here is some detailed information about what the graders expect to see from your user interface. While your final
+design does not need to match the following set of pictures exactly, you need to provide (at a minimum) the same functionality.
+Here is what the program should resemble when it first launches:
 
+![Artsy](http://i.imgur.com/YciJ2sl.png)
+
+There is a menu bar with a File menu. Underneath the menu bar there are some buttons for performing the various artsy effects.
+There are also placeholders for three different images. Above the first two images, the file names of the images are present.
+Underneath each image there are two buttons that perform various effects on that image.
+
+Here a closer look at the File menu:
+
+![File Menu](http://i.imgur.com/7V90nli.png)
+
+When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link.
+
+When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user.
+
+When the user choose to exit, the entire application should immediately exit.
+
+Each 
 
 ## Resources
 
@@ -110,6 +128,8 @@ have your own local copy of the repository. This means that you can log your
 changes using commits and even revert to a previous revision if necessary.
 
 ## Directory Structure and Packages
+
+The <code>Artsy</code> interface is contained in the <code>cs1302.artsy</code> package under the <code>src/main/java/cs1302/artsy</code> directory. The 
 
 All of the non-test classes for this project should be contained in the 
 <code>src/main/java/cs1302/artsy</code> directory. 
@@ -174,9 +194,38 @@ If you have any questions, please email them to Michael E. Cotterell at
 
         $ sbt clean
 
- 3. None of these questions are even close to the question I have. What should I
+ 3. When I execute the <code>sbt run</code> command on <code>nike</code>, I get 
+    a <code>java.awt.HeadlessException</code> that tells me no X11 DISPLAY 
+    variable was set, but this program performed an operation which requires it.
+    What is going on and how do I fix it?
+
+    This exception is thrown if you are not running an X server on your computer
+    or you are not telling your SSH client how to connect to the X server on
+    your computer.
+
+    If you are connecting to <code>nike</code> using a Linux or MacOS X machine
+    then you probably already have an X server installed. If that is the case
+    then you need to login using the following command:
+
+        $ ssh -X username@nike.cs.uga.edu
+
+    If you are using MacOS X and are unable to resolve your problem simply by
+    issuing the above command then follow the directions [here](http://tutorialgenius.blogspot.com/2012/03/how-to-enable-x11-forwarding-with-ssh.html).
+    After following the steps on that website, try logging into nike using the 
+    SSH command above.
+
+    If you are connecting to <code>nike</code> using PuTTY on Windows then you 
+    need to download and install Xming. For information about how to setup Xming
+    with Putty, please follow the directions [here](http://blog.nth-design.com/2010/05/19/x11-putty-xming/).
+    You may skip some of the steps on that website (e.g., the section on 
+    downloading and installing PuTTY), however, please read all of the sections
+    related to Xming as wells the sections related to configuring PuTTY.\
+
+ 4. None of these questions are even close to the question I have. What should I
     do?
 
     You should email your question to Michael E. Cotterell at 
     <code>mepcotterell+1302@gmail.com</code>
+
+
 
