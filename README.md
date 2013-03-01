@@ -44,11 +44,21 @@ Information about the implementation details can be found
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
+   __Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
+   partial credit can be earned.
+
 #### (60 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document. The entry point to your program must be in the <code>main</code> method of the <code>cs1302.p2.Driver</code> class.
  
    * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
+
+   __Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
+   hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
+   should exit.  
+
+   __Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
+   partial credit can be earned.
    
 #### Update the <code>README.md</code> in your project directory (this file) to 
     contain the following information at the top of the file (updating it with 
@@ -100,7 +110,11 @@ Here a closer look at the File menu:
 
 ![File Menu](http://i.imgur.com/7V90nli.png)
 
-When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user. There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. Also, when the user choose to exit, the entire application should immediately exit.
+When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user. Also, when the user choose to exit, the entire application should immediately exit.
+
+__Note:__ There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. 
+
+__Note:__ To make things easier, save the Result image in the PNG file format.
 
 After opening Image 1 and Image 2, the program should look something like this (these sample images are located in the <code>samples</code> directory in the root of this project):
 
