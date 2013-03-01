@@ -102,11 +102,55 @@ Here a closer look at the File menu:
 
 When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user. There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. Also, when the user choose to exit, the entire application should immediately exit.
 
-After opening images 1 and 2, the program should look something like this:
+After opening Image 1 and Image 2, the program should look something like this (these sample images are located in the <code>samples</code> directory in the root of this project):
 
 ![Loaded](http://i.imgur.com/JOdTmw8.jpg) 
 
-Each 
+Here is a before and after shot of clicking on the "rotate" button for Image 1:
+
+![Before Rotate](http://i.imgur.com/ds34jlc.jpg)
+
+As you can see, the user if prompted to enter the angle, in degrees, that the image should be rotated. If the user cancels
+then no rotation should be performed. If the user enters in an invalid input (in this case, not a number), then a dialog box
+should appear letting the user know that the input was invalid and the user should be re-prompted.
+
+![After Rotation](http://i.imgur.com/ozslJvg.jpg)
+
+As you can see, after a valid degree value is provided, Image 1 is rotated. This effect should be achieved by using your
+<code>MyArtsy</code> class. If, at any time, the user clicks on the "reset" button for a particular image, that image should be reset to what it was before any modifications were made. Do not save changes to Image 1 and Image 2 back to their respective files. The
+only image that will be saved is the Result image, if the user chooses to do so.
+
+Here is a before and after shot of the Artsy checkers effect:
+
+![Before Checkers](http://i.imgur.com/sZCsHfJ.jpg)
+
+Just like before, the user is prompted to enter a value. If the user cancels, no effect should be applied. 
+If the user enters in an invalid input (in this case, not an integer), then a dialog box
+should appear letting the user know that the input was invalid and the user should be re-prompted.
+
+![After Checkers](http://i.imgur.com/CVPrsJ2.jpg)
+
+As you can see, after a valid input is provided, the two images were combined using the Artsy checkers effect
+and the result was displayed in the Result image. This effect should be achieved by using your
+<code>MyArtsy</code> class.
+
+Here are images for the horizontal stripes and vertical stripes effects:
+
+![Before Vertical Stripes](http://i.imgur.com/OkVQ4xx.jpg)
+
+![After Vertical Stripes](http://i.imgur.com/6OTYDdu.jpg)
+
+![Before Horizontal Stripes](http://i.imgur.com/lbkyCDO.jpg)
+
+![After Horizontal Stripes](http://i.imgur.com/WRAqVDv.jpg)
+
+If a user rotates an image, the rotated version of the image should be used to
+produce the Result image when an Artsy effect is applied. Here is an example:
+
+![Rotated and Artsy](http://i.imgur.com/3OIXVY3.jpg)
+
+That pretty much sums it up. If you have any questions, feel free to consult the instructor or
+the TAs.
 
 ## Resources
 
