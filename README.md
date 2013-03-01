@@ -69,7 +69,7 @@ Before you submit your project, you need to perform the following tasks:
 You may earn extra credit for each of the tasks listed below:
 
  1. (20 points extra credit) Make it so that when the user enters 
- <code>↑</code><code>↑</code><code>↓</code>↓</code><code>←</code><code>→</code><code>←</code><code>→<code>B</code><code>A</code>, 
+ <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→<code>B</code><code>A</code>, a dialog box appears with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat).
 
 ## Working with Images
 
