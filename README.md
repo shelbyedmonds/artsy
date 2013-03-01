@@ -31,6 +31,11 @@ project you are going to need to lookup how to load, interact with, and save ima
 Also, since this is your first project with Swing, you will probably need to consult the 
 Oracle tutorials and definitely the JavaDoc for assistance. 
 
+This project is also designed to help you better understand how object communicate
+with each other. Since GUI containers can be nested, you need to make sure that
+your components and listeners have communication access to objects the need in
+order to function correctly.
+
 ## Project Tasks
 
 Before you submit your project, you need to perform the following tasks:
@@ -52,6 +57,11 @@ Information about the implementation details can be found
    * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
+
+   __Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
+   You should pass around this object as an <code>Artsy</code> object (relying on 
+   subsumption and polymorphism) so that your code can potentially use another
+   developer's <code>Artsy</code> implementation.  
 
    __Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
    hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
@@ -168,12 +178,17 @@ the TAs.
 
 ## Suggestions
 
-I would suggest breaking up your interface into multiple classes as needed in order to reduce repetition.
-For example, you know that there are three images, each with their own "rotate" and "reset" buttons.
-Why not create a class that extends <code>JPanel</code> that contains a place to hold an image as well
-as those two buttons (and probably some other methods for opening a file, etc.)? That way,
-you only write the code once (instead of three times) and you simply create three different objects
-of that class to add to your GUI.
+I would suggest breaking up your interface into multiple classes as needed in 
+order to reduce repetition and increase code reuse.
+For example, you know that there are three images, each with their own "rotate" 
+and "reset" buttons.
+Think about creating a separate class that extends <code>JPanel</code>, containing
+GUI components to display an image, its label, as well as those two buttons. This
+class can also contain convenience methods for opening/saving a file, displaying 
+the image for that panel. You can also include the action listeners for that 
+panel's buttons as inner classes (named or anonymous). That way, you only write 
+the code once (instead of three times) and you simply create three different objects
+of that panel class to add to your GUI.
 
 ## Resources
 
