@@ -35,7 +35,7 @@ Oracle tutorials and definitely the JavaDoc for assistance.
 
 Before you submit your project, you need to perform the following tasks:
 
-#### (40 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
+#### (40 points) Implement the <code>cs1302.effects.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
 Information about the implementation details can be found 
  
    * (15 points) The <code>doRotate</code> method is implemented correctly.
