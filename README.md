@@ -94,15 +94,17 @@ There is a menu bar with a File menu. Underneath the menu bar there are some but
 There are also placeholders for three different images. Above the first two images, the file names of the images are present.
 Underneath each image there are two buttons that perform various effects on that image.
 
+The placeholder image is located in the <code>resources</code> directory provided in the root of this project.
+
 Here a closer look at the File menu:
 
 ![File Menu](http://i.imgur.com/7V90nli.png)
 
-When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link.
+When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user. There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. Also, when the user choose to exit, the entire application should immediately exit.
 
-When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user.
+After opening images 1 and 2, the program should look something like this:
 
-When the user choose to exit, the entire application should immediately exit.
+![Loaded](http://i.imgur.com/JOdTmw8.jpg) 
 
 Each 
 
