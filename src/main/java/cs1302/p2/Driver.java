@@ -3,9 +3,6 @@ package cs1302.p2;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import cs1302.p2.gui.MenuBar;
-import cs1302.p2.gui.Panel;
-
 public class Driver {
 	
     public static void createAndShowGUI() {
