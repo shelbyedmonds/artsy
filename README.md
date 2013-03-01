@@ -19,6 +19,8 @@ contained in the Resources section below in order to do your development on
 
 ## Project Description
 
+![Artsy](http://i.imgur.com/YciJ2sl.png)
+
 Your goal is to implement a program that can stitch together muliple images in
 a number of artsy ways. This project will make use of subtype polymorphism in order
 to make your code look nicer.
