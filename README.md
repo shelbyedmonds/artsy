@@ -40,8 +40,7 @@ order to function correctly.
 
 Before you submit your project, you need to perform the following tasks:
 
-#### (40 points) Implement the <code>cs1302.effects.Artsy</code> interface in the 
-<code>cs1302.p2.MyArtsy</code> class.
+#### (40 points) Implement the <code>cs1302.effects.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
 
 Information about the implementation details can be found in the JavaDoc comments 
 for the interface as well as inferred from the images contained elsewhere in this 
@@ -56,8 +55,10 @@ document.
    __Note:__ The actual grading rubric will involve testing each of the items 
    above in discrete parts so that partial credit can be earned.
 
-#### (60 points) Implement a graphical user interface in Swing that resembles and 
-functions like the one described in the "User Interface" section of this document. 
+#### (60 points) Implement a graphical user interface in Swing.
+
+Your GUI should resemble and functions like the one described in the 
+"User Interface" section of this document. 
 
    * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
