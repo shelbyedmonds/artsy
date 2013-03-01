@@ -34,13 +34,20 @@ project you are going to need to lookup how to load, interact with, and save ima
 Before you submit your project, you need to perform the following tasks:
 
  1. (30 points) Implement the <code>cs1302.artsy.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
+ 
    * (10 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
    * (5 points) The <code>doHorizontalStripes</code> method is implemented correctly.
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
+
  2. (20 points) Write unit tests for at least two of the methods in the <code>Artsy</code> and use those unit tests to test your <code>MyArtsy</code> class.
+ 
+   * (10 points) Two unit tests are properly written and JavaDoc comments are included that explain how the tests work.
+   * (10 points) Your <code>MyArtsy</code> class passes the unit tests.
+ 
  3. (50 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document.
+ 
    * (10 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document.
