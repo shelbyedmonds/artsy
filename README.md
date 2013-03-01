@@ -1,4 +1,4 @@
-# CSCI 1302 - Art Project (cs1302-artsy)
+# CSCI 1302 - Arts Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
 to the students in Michael E. Cotterell's Spring 2013 CSCI 1302 class at the 
@@ -40,8 +40,12 @@ order to function correctly.
 
 Before you submit your project, you need to perform the following tasks:
 
-#### (40 points) Implement the <code>cs1302.effects.Artsy</code> interface in the <code>cs1302.p2.MyArtsy</code> class.
-Information about the implementation details can be found 
+#### (40 points) Implement the <code>cs1302.effects.Artsy</code> interface in the 
+<code>cs1302.p2.MyArtsy</code> class.
+
+Information about the implementation details can be found in the JavaDoc comments 
+for the interface as well as inferred from the images contained elsewhere in this 
+document.
  
    * (15 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
@@ -49,19 +53,28 @@ Information about the implementation details can be found
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
-   __Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
-   partial credit can be earned.
+   __Note:__ The actual grading rubric will involve testing each of the items 
+   above in discrete parts so that partial credit can be earned.
 
-#### (60 points) Implement a graphical user interface in Swing that resembles and functions like the one described in the "User Interface" section of this document. The entry point to your program must be in the <code>main</code> method of the <code>cs1302.p2.Driver</code> class.
- 
+#### (60 points) Implement a graphical user interface in Swing that resembles and 
+functions like the one described in the "User Interface" section of this document. 
+
    * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
 
+   __Note:__ The entry point to your program must be in <code>cs1302.p2.Driver</code> class. 
+   All that means is that the <code>cs1302.p2.Driver</code> class is used to run 
+   your program. However, some code has been written in that class to help make your 
+   code more thread-safe. Instead of creating and displaying your GUI in the 
+   <code>main</code> method, you should do it in the <code>createAndShowGUI</code>
+   method.
+
    __Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
    You should pass around this object as an <code>Artsy</code> object (relying on 
    subsumption and polymorphism) so that your code can potentially use another
-   developer's <code>Artsy</code> implementation.  
+   developer's <code>Artsy</code> implementation. This is noted in the 
+   <code>createAndShowGUI</code> method in the <code>Driver</code> class.
 
    __Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
    hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
