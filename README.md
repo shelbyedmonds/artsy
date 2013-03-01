@@ -52,41 +52,43 @@ document.
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
    * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
-   __Note:__ The actual grading rubric will involve testing each of the items 
-   above in discrete parts so that partial credit can be earned.
+__Note:__ The actual grading rubric will involve testing each of the items 
+above in discrete parts so that partial credit can be earned.
 
 #### (60 points) Implement a graphical user interface in Swing.
 
-Your GUI should resemble and functions like the one described in the 
+Your GUI should resemble and function like the one described in the 
 "User Interface" section of this document. 
 
    * (20 points) The menu bar works as described in this document.
    * (20 points) The tool bar works as described in this document.
    * (20 points) The image panels work as described in this document. 
 
-   __Note:__ The entry point to your program must be in <code>cs1302.p2.Driver</code> class. 
-   All that means is that the <code>cs1302.p2.Driver</code> class is used to run 
-   your program. However, some code has been written in that class to help make your 
-   code more thread-safe. Instead of creating and displaying your GUI in the 
-   <code>main</code> method, you should do it in the <code>createAndShowGUI</code>
-   method.
+__Note:__ The entry point to your program must be in <code>cs1302.p2.Driver</code> class. 
+All that means is that the <code>cs1302.p2.Driver</code> class is used to run 
+your program. However, some code has been written in that class to help make your 
+code more thread-safe. Instead of creating and displaying your GUI in the 
+<code>main</code> method, you should do it in the <code>createAndShowGUI</code>
+method.
 
-   __Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
-   You should pass around this object as an <code>Artsy</code> object (relying on 
-   subsumption and polymorphism) so that your code can potentially use another
-   developer's <code>Artsy</code> implementation. This is noted in the 
-   <code>createAndShowGUI</code> method in the <code>Driver</code> class.
+__Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
+You should pass around this object as an <code>Artsy</code> object (relying on 
+subsumption and polymorphism) so that your code can potentially use another
+developer's <code>Artsy</code> implementation. This is noted in the 
+<code>createAndShowGUI</code> method in the <code>Driver</code> class.
 
-   __Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
-   hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
-   should exit.  
+__Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
+hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
+should exit.  
 
-   __Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
-   partial credit can be earned.
+__Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
+partial credit can be earned.
    
-#### Update the <code>README.md</code> in your project directory (this file) to 
-    contain the following information at the top of the file (updating it with 
-    your own information:
+#### Update the <code>README.md</code> file.
+
+Update the <code>README.md</code> in your project directory (this file) to 
+contain the following information at the top of the file (updating it with 
+your own information:
 
     ```markdown
     # Project Submission
@@ -101,7 +103,21 @@ Your GUI should resemble and functions like the one described in the
 You may earn extra credit for each of the tasks listed below:
 
  1. (20 points extra credit) Make it so that when the user enters 
- <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I recommend that you keep your picture of Grumpy Cat in the <code>resources</code> directory.
+ <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears 
+ with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I 
+ recommend that you keep your picture of Grumpy Cat in the <code>resources</code> 
+ directory.
+
+ 2. (20 points extra credit) Modify your program so that a user can open files
+ from both the local file system and via a URL. When a user chooses to open a 
+ file using the File -> Open -> ... menu, he or she is presented an option
+ that is functionally similar to the following images:
+
+ ![Local File](http://i.imgur.com/1X06iXA.png)
+ ![Remote File](http://i.imgur.com/husPD22.png)
+
+   __Note:__ In order to receive credit for Extra Credit 2, both the visual aspect
+   and functional aspect of opening local and remote files needs to be implemented. 
 
 ## Working with Images
 
