@@ -102,11 +102,15 @@ your own information:
 
 You may earn extra credit for each of the tasks listed below:
 
- 1. (20 points extra credit) Make it so that when the user enters 
+ 1. (20 points extra credit) Konami Code: Make it so that when the user enters 
  <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears 
  with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I 
  recommend that you keep your picture of Grumpy Cat in the <code>resources</code> 
  directory.
+
+   __Note:__ In order to receive credit for Extra Credit 1, the grader must be
+   able to enter the Konami Code *whenever* a dialog box is not present on the
+   screen.
 
  2. (20 points extra credit) Modify your program so that a user can open files
  from both the local file system and via a URL. When a user chooses to open a 
