@@ -1,15 +1,19 @@
 # CSCI 1302 - Arts Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
-to the students in Michael E. Cotterell's Spring 2013 CSCI 1302 class at the 
+to the students in Michael E. Cotterell's Spring 2014 CSCI 1302 class at the 
 University of Georgia. 
 
 **Please read the entirety of this file before beginning your project.**
 
+## Due Date
+
+This project is due on Monday 2014-03-24 @ 11:55 PM.
+
 ## Academic Honesty
 
 You implicitly agree to Academic Honesty policy as outlined in the course 
-syllabus and course website (available at: http://cs.uga.edu/~mec/cs1302/).
+syllabus and course website.
 
 In accordance with the notice above, I must caution you **not** to fork this
 repository on GitHub if you have an account. Doing so will more than likely make
@@ -22,14 +26,14 @@ contained in the Resources section below in order to do your development on
 ![Artsy](http://i.imgur.com/YciJ2sl.png)
 
 Your goal is to implement a Java application that can stitch together multiple images in
-a number of "artsy" ways. This project will make use of interface and Swing.
+a number of "artsy" ways. This project will make use of interface and Java Swing.
 
 Part of software development is being given a goal but not necessarily being 
 given instruction on all of the details needed to accomplish that goal. For example,
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
 Also, since this is your first project with Swing, you will probably need to consult the 
-Oracle tutorials and definitely the JavaDoc for assistance. 
+Oracle tutorials and definitely the Java SE 7 JavaDoc for assistance. 
 
 This project is also designed to help you better understand how object communicate
 with each other. Since GUI containers can be nested, you need to make sure that
@@ -78,7 +82,7 @@ developer's <code>Artsy</code> implementation. This is noted in the
 <code>createAndShowGUI</code> method in the <code>Driver</code> class.
 
 __Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
-hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program t
+hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program
 should exit.  
 
 __Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
@@ -90,19 +94,19 @@ Update the <code>README.md</code> in your project directory (this file) to
 contain the following information at the top of the file (updating it with 
 your own information:
 
-    ```markdown
-    # Project Submission
+```markdown
+# Project Submission
 
- Author: YOUR NAME (LAST 3 DIGITS OF 810 NUMBER HERE)
+Author: YOUR NAME (LAST 3 DIGITS OF 810 NUMBER HERE)
 
-    [If you did any of the extra credit then please indicate that here.]
-    ```
+[If you did any of the extra credit then please indicate that here.]
+```
         
 ## Extra Credit Project Tasks
 
 You may earn extra credit for each of the tasks listed below:
 
- 1. (20 points extra credit) Konami Code: Make it so that when the user enters 
+ 1. (10 points extra credit) Konami Code: Make it so that when the user enters 
  <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears 
  with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I 
  recommend that you keep your picture of Grumpy Cat in the <code>resources</code> 
@@ -110,9 +114,10 @@ You may earn extra credit for each of the tasks listed below:
 
    __Note:__ In order to receive credit for Extra Credit 1, the grader must be
    able to enter the Konami Code *whenever* a dialog box is not present on the
-   screen.
+   screen. It should also be possible to enter the code multiple times while
+   the program is being run.
 
- 2. (20 points extra credit) Modify your program so that a user can open files
+ 2. (10 points extra credit) Modify your program so that a user can open files
  from both the local file system and via a URL. When a user chooses to open a 
  file using the File -> Open -> ... menu, he or she is presented an option
  that is functionally similar to the following images:
@@ -208,7 +213,7 @@ produce the Result image when an Artsy effect is applied. Here is an example:
 ![Rotated and Artsy](http://i.imgur.com/3OIXVY3.jpg)
 
 That pretty much sums it up. If you have any questions, feel free to consult the instructor or
-the TAs.
+the TAs via Piazza. 
 
 ## Suggestions
 
@@ -247,7 +252,9 @@ changes using commits and even revert to a previous revision if necessary.
 
 ## Directory Structure and Packages
 
-The <code>Artsy</code> interface is contained in the <code>cs1302.artsy</code> package under the <code>src/main/java/cs1302/artsy</code> directory. The other classes of interest for this project should be contained in the 
+The <code>Artsy</code> interface is contained in the <code>cs1302.artsy</code> 
+package under the <code>src/main/java/cs1302/artsy</code> directory. The other 
+classes of interest for this project should be contained in the 
 <code>src/main/java/cs1302/p2</code> directory. 
 These classes are in the <code>cs1302.p2</code> package.
 
@@ -285,8 +292,7 @@ the following command, replacing the email address with your email address:
 
 ## Questions
 
-If you have any questions, please email them to Michael E. Cotterell at 
-<code>mepcotterell+1302@gmail.com</code>
+If you have any questions, please post them on Piazza.
 
 ## Frequently Asked Questions
 
@@ -340,8 +346,7 @@ If you have any questions, please email them to Michael E. Cotterell at
  4. None of these questions are even close to the question I have. What should I
     do?
 
-    You should email your question to Michael E. Cotterell at 
-    <code>mepcotterell+1302@gmail.com</code>
+    You should post such questions to Piazza.
 
 
 
