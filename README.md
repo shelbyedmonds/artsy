@@ -1,14 +1,14 @@
 # CSCI 1302 - Arts Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
-to the students in Michael E. Cotterell's Spring 2014 CSCI 1302 class at the 
+to the students in Michael E. Cotterell's Fall 2014 CSCI 1302 class at the 
 University of Georgia. 
 
 **Please read the entirety of this file before beginning your project.**
 
 ## Due Date
 
-This project is due on Monday 2014-03-24 @ 11:55 PM.
+This project is due on Monday 2014-10-21 @ 9:30 AM.
 
 ## Academic Honesty
 
@@ -26,14 +26,14 @@ contained in the Resources section below in order to do your development on
 ![Artsy](http://i.imgur.com/YciJ2sl.png)
 
 Your goal is to implement a Java application that can stitch together multiple images in
-a number of "artsy" ways. This project will make use of interface and Java Swing.
+a number of "artsy" ways. This project will make use of interfaces and Java Swing.
 
 Part of software development is being given a goal but not necessarily being 
 given instruction on all of the details needed to accomplish that goal. For example,
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
 Also, since this is your first project with Swing, you will probably need to consult the 
-Oracle tutorials and definitely the Java SE 7 JavaDoc for assistance. 
+Oracle tutorials and definitely the Java SE 7 or 8 JavaDoc for assistance. 
 
 This project is also designed to help you better understand how object communicate
 with each other. Since GUI containers can be nested, you need to make sure that
