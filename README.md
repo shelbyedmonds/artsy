@@ -1,4 +1,4 @@
-# CSCI 1302 - Arts Project (cs1302-artsy)
+# CSCI 1302 - Artsy Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
 to the students in Michael E. Cotterell's Fall 2014 CSCI 1302 class at the 
