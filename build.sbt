@@ -1,8 +1,10 @@
 name := "cs1302-artsy"
 
-version := "1.0"
+version := "1.1"
 
 autoScalaLibrary := false
+
+fork := true
 
 unmanagedSourceDirectories in Compile <<= Seq(javaSource in Compile).join
 
