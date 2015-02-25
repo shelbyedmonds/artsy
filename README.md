@@ -27,6 +27,8 @@ contained in the Resources section below in order to do your development on
 
 Your goal is to implement a Java application that can stitch together multiple images in
 a number of "artsy" ways. This project will make use of interfaces and Java Swing.
+This will require you to lookup things in Javadoc and apply your knowledge of
+things like inheritance, polymorphism, anonymous classes and lambda expressions.
 
 Part of software development is being given a goal but not necessarily being 
 given instruction on all of the details needed to accomplish that goal. For example,
@@ -38,7 +40,13 @@ Oracle tutorials and definitely the Java SE 7 or 8 JavaDoc for assistance.
 This project is also designed to help you better understand how object communicate
 with each other. Since GUI containers can be nested, you need to make sure that
 your components and listeners have communication access to objects the need in
-order to function correctly.
+order to function correctly. While you can technically write your entire Swing-based
+GUI application entirely in the <code>createAndShowGUI</code> method, this will
+make your code messy, hard to read, and result in lots of duplicate code.
+Before you write any code, you should plan out your containment heirarchy and
+design classes involving inheritance and polymorphism appropriately. Then, wehen
+you go to write the code for your GUI, use the classes you designed, changing
+them as needed.
 
 ## Project Tasks
 
