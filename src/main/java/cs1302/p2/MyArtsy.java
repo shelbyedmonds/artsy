@@ -30,11 +30,6 @@ public class MyArtsy implements Artsy {
 	return null;
     } // doVerticalStripes
 
-    @Override
-    public Dimension getMinDimension(BufferedImage src1, BufferedImage src2) {
-	return null;
-    } // getMinDimension
-
 } // MyArtsy
 
 
