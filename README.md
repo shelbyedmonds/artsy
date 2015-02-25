@@ -139,7 +139,7 @@ The are two main classes that you must learn about to work with images:
    with image data (for example, retrieving or setting up the pixel color).
    Applications can directly construct instances of this class.
 
-You should familiarize yourself with the <code>BufferedImage</class>
+You should familiarize yourself with the <code>BufferedImage</code>
 mentioned above by reading its API documention
 [here](http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html).
 
