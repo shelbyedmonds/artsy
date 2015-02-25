@@ -1,14 +1,14 @@
 # CSCI 1302 - Artsy Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
-to the students in Michael E. Cotterell's Fall 2014 CSCI 1302 class at the 
+to the students in Michael E. Cotterell's Spring 2015 CSCI 1302 class at the 
 University of Georgia. 
 
 **Please read the entirety of this file before beginning your project.**
 
 ## Due Date
 
-This project is due on Monday 2014-10-21 @ 9:30 AM.
+This project is due on Friday 2015-03-20 @ 11:55 PM.
 
 ## Academic Honesty
 
@@ -50,11 +50,10 @@ Information about the implementation details can be found in the JavaDoc comment
 for the interface as well as inferred from the images contained elsewhere in this 
 document.
  
-   * (15 points) The <code>doRotate</code> method is implemented correctly.
+   * (20 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
    * (5 points) The <code>doHorizontalStripes</code> method is implemented correctly.
    * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
-   * (5 points) The <code>getMinDimension</code> method is implemented correctly.
 
 __Note:__ The actual grading rubric will involve testing each of the items 
 above in discrete parts so that partial credit can be earned.
@@ -73,7 +72,7 @@ All that means is that the <code>cs1302.p2.Driver</code> class is used to run
 your program. However, some code has been written in that class to help make your 
 code more thread-safe. Instead of creating and displaying your GUI in the 
 <code>main</code> method, you should do it in the <code>createAndShowGUI</code>
-method.
+method. There is already some code there to get you started.
 
 __Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
 You should pass around this object as an <code>Artsy</code> object (relying on 
@@ -81,12 +80,13 @@ subsumption and polymorphism) so that your code can potentially use another
 developer's <code>Artsy</code> implementation. This is noted in the 
 <code>createAndShowGUI</code> method in the <code>Driver</code> class.
 
-__Note:__ Your program should not crash. Exceptions and errors should be handled so that the user experience is not
-hindered. If an error or exception cannot be handled, a user should first be notified of error, then the program
-should exit.  
+__Note:__ Your program should not crash. Exceptions and errors should be
+handled so that the user experience is not hindered. If an error or
+exception cannot be handled, a user should first be notified of error,
+then the program should exit.  
 
-__Note:__ The actual grading rubric will involve testing each of the items above in discrete parts so that
-partial credit can be earned.
+__Note:__ The actual grading rubric will involve testing each of the items
+above in discrete parts so that partial credit can be earned.
    
 #### Update the <code>README.md</code> file.
 
@@ -132,40 +132,114 @@ You may earn extra credit for each of the tasks listed below:
 
 The are two main classes that you must learn about to work with images:
 
- * The <code>java.awt.Image</code> class is the superclass that represents graphical images as rectangular 
-   arrays of pixels.
- * The <code>java.awt.image.BufferedImage</code> class, which extends the Image class to allow the application 
-   to operate directly with image data (for example, retrieving or setting up the pixel color). Applications 
-   can directly construct instances of this class.
+ * The <code>java.awt.Image</code> class is the superclass that represents
+   graphical images as rectangular arrays of pixels.
+ * The <code>java.awt.image.BufferedImage</code> class, which extends the
+   <code>Image</code> class to allow the application to operate directly
+   with image data (for example, retrieving or setting up the pixel color).
+   Applications can directly construct instances of this class.
 
-Additionally, you may find the methods and constants availible in <code>java.awt.Color</code> useful for working
-with colors.
+You should familiarize yourself with the <code>BufferedImage</class>
+mentioned above by reading its API documention
+[here](http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html).
+
+To create a new blank <code>BufferedImage</code> object, you can do
+something like the following:
+
+```java
+int width  = 300;
+int height = 300;
+BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+```
+
+To create a <code>BufferedImage</code> from a file, you can use the
+static methods in the
+[<code>javax.imageio.ImageIO</code>](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html)
+class. For example, you might do something like the following:
+
+```java
+File imageFile   = new File("pic.png");
+BufferedImage bi = null;
+try {
+    bi = ImageIO.read(imageFile);
+} catch (IOException e) {
+    // inform user that there was an io error
+} // try
+
+if (bi != null) {
+ // do stuff
+ // ...
+} // if
+```
+
+To save a <code>BufferedImage</code> object to a file, you can also use the
+static methods in the <code>ImageIO</code> class. For example, you might
+do something like this:
+
+```java
+// BufferedImage bi is declared somewhere else
+File imageFile = new File("saved.png");
+try {
+    ImageIO.write(bi, "png", imageFile);
+} catch (IOException e) {
+    // inform user that there was an io error
+} // try
+```
+
+In the code snippet above we defaulted to using the PNG image format. This
+involved two things: i) telling the <code>write</code> method that the
+format was <code>"png"</code>; and ii) making sure that the file has a
+<code>.png</code> filename extension. To see a list of the formats
+supported by the JVM, you can do something like the following:
+
+```java
+String[] formats = ImageIO.getWriterFormatNames();
+System.out.println(Arrays.toString(formats));
+```
+
+Additionally, you may find the methods and constants availible in the
+<code>java.awt.Color</code> class useful for working with colors.
 
 ## Artsy Interface
 
-Here is some detailed information about what the graders expect to see from your user interface. While your final
-design does not need to match the following set of pictures exactly, you need to provide (at a minimum) the same functionality.
-Here is what the program should resemble when it first launches:
+Here is some detailed information about what the graders expect to see
+from your user interface. While your final design does not need to match
+the following set of pictures exactly, you need to provide (at a minimum)
+the same functionality. Here is what the program should resemble when it
+first launches:
 
 ![Artsy](http://i.imgur.com/YciJ2sl.png)
 
-There is a menu bar with a File menu. Underneath the menu bar there are some buttons for performing the various artsy effects.
-There are also placeholders for three different images. Above the first two images, the file names of the images are present.
-Underneath each image there are two buttons that perform various effects on that image.
+There is a menu bar with a File menu. Underneath the menu bar there are
+some buttons for performing the various artsy effects. There are also
+placeholders for three different images. Above the first two images,
+the file names of the images are present. Underneath each image there
+are two buttons that perform various effects on that image.
 
-The placeholder image is located in the <code>resources</code> directory provided in the root of this project.
+The placeholder image is located in the <code>resources</code> directory
+provided in the root of this project.
 
 Here a closer look at the File menu:
 
 ![File Menu](http://i.imgur.com/7V90nli.png)
 
-When the user chooses to open an image, a <code>JFileChooser</code> should open up, allowing the user to browse for an image file, open it, and have that image display in the appropriate place. When the user chooses to save the result, a <code>JFileChooser</code> should open up, allowing the user to browse for a location to save the result image. The actual image file should be written to the file location specified by the user. Also, when the user choose to exit, the entire application should immediately exit.
+When the user chooses to open an image, a <code>JFileChooser</code> should open
+up, allowing the user to browse for an image file, open it, and have that image
+display in the appropriate place. When the user chooses to save the result, a
+<code>JFileChooser</code> should open up, allowing the user to browse for a
+location to save the result image. The actual image file should be written to
+the file location specified by the user. Also, when the user choose to exit, the
+entire application should immediately exit.
 
-__Note:__ There is a great tutorial on file chooser at [this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. 
+__Note:__ There is a great tutorial on file chooser at
+[this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. 
 
-__Note:__ To make things easier, save the Result image in the PNG file format.
+__Note:__ To make things easier, save the Result image in one of the formats
+listed in the array returned by <code>ImageIO.getWriterFormatNames()</code>.
 
-After opening Image 1 and Image 2, the program should look something like this (these sample images are located in the <code>samples</code> directory in the root of this project):
+After opening Image 1 and Image 2, the program should look something like this
+(these sample images are located in the <code>samples</code> directory in the
+root of this project):
 
 ![Loaded](http://i.imgur.com/JOdTmw8.jpg) 
 
@@ -173,29 +247,40 @@ Here is a before and after shot of clicking on the "rotate" button for Image 1:
 
 ![Before Rotate](http://i.imgur.com/ds34jlc.jpg)
 
-As you can see, the user if prompted to enter the angle, in degrees, that the image should be rotated. If the user cancels
-then no rotation should be performed. If the user enters in an invalid input (in this case, not a number), then a dialog box
-should appear letting the user know that the input was invalid and the user should be re-prompted.
+As you can see, the user if prompted to enter the angle, in degrees, that the
+image should be rotated. If the user cancels then no rotation should be
+performed. If the user enters in an invalid input (in this case, not a number),
+then a dialog box should appear letting the user know that the input was invalid
+and the user should be re-prompted.
 
 ![After Rotation](http://i.imgur.com/ozslJvg.jpg)
 
-As you can see, after a valid degree value is provided, Image 1 is rotated. This effect should be achieved by using your
-<code>MyArtsy</code> class. If, at any time, the user clicks on the "reset" button for a particular image, that image should be reset to what it was before any modifications were made. Do not save changes to Image 1 and Image 2 back to their respective files. The
-only image that will be saved is the Result image, if the user chooses to do so.
+As you can see, after a valid degree value is provided, Image 1 is rotated.
+This effect should be achieved by using your <code>MyArtsy</code> class.
+
+If, at any time, the user clicks on the "reset" button for a particular image,
+that image should be reset to what it was before any modifications were made.
+For the first two images, this will return them to their original state. For
+the result image, this should revert the image back to the default image.
+
+When saving, do not save changes to Image 1 and Image 2 back to their
+respective files. The only image that will be saved is the Result image,
+if the user chooses to do so.
 
 Here is a before and after shot of the Artsy checkers effect:
 
 ![Before Checkers](http://i.imgur.com/sZCsHfJ.jpg)
 
-Just like before, the user is prompted to enter a value. If the user cancels, no effect should be applied. 
-If the user enters in an invalid input (in this case, not an integer), then a dialog box
-should appear letting the user know that the input was invalid and the user should be re-prompted.
+Just like before, the user is prompted to enter a value. If the user cancels,
+no effect should be applied. If the user enters in an invalid input (in this
+case, not an integer), then a dialog box should appear letting the user know
+that the input was invalid and the user should be re-prompted.
 
 ![After Checkers](http://i.imgur.com/CVPrsJ2.jpg)
 
-As you can see, after a valid input is provided, the two images were combined using the Artsy checkers effect
-and the result was displayed in the Result image. This effect should be achieved by using your
-<code>MyArtsy</code> class.
+As you can see, after a valid input is provided, the two images were combined
+using the Artsy checkers effect and the result was displayed in the Result
+image. This effect should be achieved by using your <code>MyArtsy</code> class.
 
 Here are images for the horizontal stripes and vertical stripes effects:
 
@@ -212,8 +297,8 @@ produce the Result image when an Artsy effect is applied. Here is an example:
 
 ![Rotated and Artsy](http://i.imgur.com/3OIXVY3.jpg)
 
-That pretty much sums it up. If you have any questions, feel free to consult the instructor or
-the TAs via Piazza. 
+That pretty much sums it up. If you have any questions, feel free to consult the
+instructor or the TAs via Piazza. 
 
 ## Suggestions
 
