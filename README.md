@@ -1,14 +1,14 @@
 # CSCI 1302 - Artsy Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
-to the students in Michael E. Cotterell's Spring 2015 CSCI 1302 class at the 
+to the students in the Fall 2015 CSCI 1302 classes at the 
 University of Georgia. 
 
 **Please read the entirety of this file before beginning your project.**
 
 ## Due Date
 
-This project is due on Friday 2015-03-20 @ 11:55 PM.
+This project is due on Friday 2015-10-23 @ 11:55 PM.
 
 ## Academic Honesty
 
@@ -35,7 +35,7 @@ given instruction on all of the details needed to accomplish that goal. For exam
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
 Also, since this is your first project with Swing, you will probably need to consult the 
-Oracle tutorials and definitely the Java SE 7 or 8 JavaDoc for assistance. 
+Oracle tutorials and definitely the Java SE 8 JavaDoc for assistance. 
 
 This project is also designed to help you better understand how object communicate
 with each other. Since GUI containers can be nested, you need to make sure that
