@@ -8,7 +8,7 @@ University of Georgia.
 
 ## Due Date
 
-This project is due on SUN 2016-04-10 @ 11:55 PM.
+This project is due on SUN 2016-04-10 @ 11:59 PM.
 
 ## Academic Honesty
 
