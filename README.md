@@ -161,6 +161,30 @@ the pixel level:
 You should familiarize yourself with the classes and interfaces mentioned above by
 reading their API documention in the Oracle Javadocs.
 
+### Copy an <code>Image</code> Pixel-by-Pixel
+
+In order to help you get more familar with <code>PixelReader</code> and
+<code>PixelWriter</code>, here is an example of how to copy one image into another
+(initially blank) image, pixel-by-pixel:
+
+```java
+Image image1 = ; // assume non-null
+
+int width = (int) image1.getWidth();
+int height = (int) image2.getHeight();
+
+WritableImage image2 = new WritableImage(width, height);
+
+PixelReader pr = image1.getPixelReader();
+PixelWriter pw = image2.getPixelWriter();
+
+for (int x = 0; x < width; ++x) {
+    for (int y = 0; y < height; ++y) {
+        pw.setArgb(x, y, pr.getArgb(x, y));
+    } // for
+} // for
+```
+
 ### Saving an <code>Image</code>
 
 Saving an <code>Image</code> to a file, in JavaFX, is a little tricky since it
