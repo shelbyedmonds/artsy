@@ -26,7 +26,7 @@ contained in the Resources section below in order to do your development on
 ![Artsy](http://i.imgur.com/YciJ2sl.png)
 
 Your goal is to implement a Java application that can stitch together multiple images in
-a number of "artsy" ways. This project will make use of interfaces and JavaFX.
+a number of "artsy" ways. This project will make use of interfaces and JavaFX 8.
 This will require you to lookup things in Javadoc and apply your knowledge of
 things like inheritance, polymorphism, and lambda expressions.
 
@@ -34,7 +34,7 @@ Part of software development is being given a goal but not necessarily being
 given instruction on all of the details needed to accomplish that goal. For example,
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
-Also, since this is your first project with JavaFX, you will probably need to consult the 
+Also, since this is your first project with JavaFX 8, you will probably need to consult the 
 Oracle tutorials and definitely the Java SE 8 JavaDoc for assistance. 
 
 This project is also designed to help you better understand how object communicate
