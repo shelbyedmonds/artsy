@@ -164,25 +164,29 @@ reading their API documention in the Oracle Javadocs.
 ### Copy an <code>Image</code> Pixel-by-Pixel
 
 In order to help you get more familar with <code>PixelReader</code> and
-<code>PixelWriter</code>, here is an example of how to copy one image into another
-(initially blank) image, pixel-by-pixel:
+<code>PixelWriter</code>, here is an example of a method that will return a copy
+of an image. It does this by creating a new (initiall blank) <code>WritableImage</code>, using
+the readers and writers appropriately in a loop, and then returning that new image.
 
 ```java
-Image image1 = ; // assume non-null
+public Image copyImage(Image src) {
 
-int width = (int) image1.getWidth();
-int height = (int) image2.getHeight();
+    int width = (int) src.getWidth();
+    int height = (int) src.getHeight();
 
-WritableImage image2 = new WritableImage(width, height);
+    WritableImage ret = new WritableImage(width, height);
+    PixelReader pr = src.getPixelReader();
+    PixelWriter pw = ret.getPixelWriter();
 
-PixelReader pr = image1.getPixelReader();
-PixelWriter pw = image2.getPixelWriter();
-
-for (int x = 0; x < width; ++x) {
-    for (int y = 0; y < height; ++y) {
-        pw.setArgb(x, y, pr.getArgb(x, y));
+    for (int x = 0; x < width; ++x) {
+        for (int y = 0; y < height; ++y) {
+            pw.setArgb(x, y, pr.getArgb(x, y));
+        } // for
     } // for
-} // for
+    
+    return ret;
+    
+} // copyImage
 ```
 
 ### Saving an <code>Image</code>
