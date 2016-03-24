@@ -135,75 +135,50 @@ You may earn extra credit for each of the tasks listed below:
 
 ## Working with Images
 
-The are two main classes that you must learn about to work with images:
+The are a couple differen classes that you must learn about to work with images at
+the pixel leve;:
 
- * The <code>java.awt.Image</code> class is the superclass that represents
-   graphical images as rectangular arrays of pixels.
- * The <code>java.awt.image.BufferedImage</code> class, which extends the
-   <code>Image</code> class to allow the application to operate directly
-   with image data (for example, retrieving or setting up the pixel color).
-   Applications can directly construct instances of this class.
+ * The <code>javafx.scene.image.Image</code> class represents graphical images
+   and is used for loading images from a specified URL.
+   
+ * The <code>javafx.scene.image.WritableImage</code> class is a subclass of
+   <code>Image</code> that represents a custom graphical image that is constructed
+   from pixels supplied by the application, and possibly from <code>PixelReader</code>
+   objects from any number of sources, including images read from a file or URL.
 
-You should familiarize yourself with the <code>BufferedImage</code> class
-mentioned above by reading its API documention
-[here](http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html).
+ * The <code>javafx.scene.image.PixelReader</code> interface that defines methods
+   for retrieving the pixel data from an <code>Image</code> or other surface
+   containing pixels.
 
-To create a new blank <code>BufferedImage</code> object, you can do
-something like the following:
+ * The <code>javafx.scene.image.PixelWriter</code> interface that defines methods
+   for writing the pixel data of a <code>WritableImage</code> or other surface
+   containing writable pixels.
 
-```java
-int width  = 300;
-int height = 300;
-BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-```
+You should familiarize yourself with the classes and interfaces mentioned above by
+reading their API documention in the Oracle Javadocs.
 
-To create a <code>BufferedImage</code> from a file, you can use the
-static methods in the
-[<code>javax.imageio.ImageIO</code>](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html)
-class. For example, you might do something like the following:
+### Saving an <code>Image</code>
 
-```java
-File imageFile   = new File("pic.png");
-BufferedImage bi = null;
-try {
-    bi = ImageIO.read(imageFile);
-} catch (IOException e) {
-    // inform user that there was an io error
-} // try
-
-if (bi != null) {
- // do stuff
- // ...
-} // if
-```
-
-To save a <code>BufferedImage</code> object to a file, you can also use the
-static methods in the <code>ImageIO</code> class. For example, you might
-do something like this:
+Saving an <code>Image</code> to a file, in JavaFX, is a little tricky since it
+involves using some Swing and AWT code. Here is a code snippet for saving an
+image:
 
 ```java
-// BufferedImage bi is declared somewhere else
-File imageFile = new File("saved.png");
-try {
-    ImageIO.write(bi, "png", imageFile);
-} catch (IOException e) {
-    // inform user that there was an io error
-} // try
+Image image = ; // assume non-empty
+File file = new File("image.png");
+BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
+ImageIO.write(bImage, "png", file);
 ```
 
-In the code snippet above we defaulted to using the PNG image format. This
-involved two things: i) telling the <code>write</code> method that the
-format was <code>"png"</code>; and ii) making sure that the file has a
-<code>.png</code> filename extension. To see a list of the formats
-supported by the JVM, you can do something like the following:
+_NOTE:_ The code above is just a simple example and will probably need to be
+placed in a try-catch block.
 
-```java
-String[] formats = ImageIO.getWriterFormatNames();
-System.out.println(Arrays.toString(formats));
-```
+Here are the additional classes that are involved:
 
-Additionally, you may find the methods and constants availible in the
-<code>java.awt.Color</code> class useful for working with colors.
+ * <code>java.io.File</code>
+ * <code>java.awt.image.BufferedImage</code>
+ * <code>javafx.embed.swing.SwingFXUtils</code>
+ * <code>javax.imageio.ImageIO</code>
 
 ## Artsy Interface
 
