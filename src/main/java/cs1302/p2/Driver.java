@@ -5,6 +5,7 @@ import cs1302.effects.Artsy;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.layout.FlowPane;
 
 /**
  * This is the driver for this application.
@@ -12,9 +13,10 @@ import javafx.scene.Scene;
 public class Driver extends Application {
 
     @Override
-    public static void start(Stage stage) {
+    public void start(Stage stage) {
 
-        Scene scene = new Scene();
+        FlowPane root = new FlowPane();
+        Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.setTitle("Artsy!");
