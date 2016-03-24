@@ -101,8 +101,8 @@ your own information:
 ```markdown
 # Project Submission
 
-Author: YOUR NAME (LAST 3 DIGITS OF 810/811 NUMBER HERE)
-Author: YOUR NAME (LAST 3 DIGITS OF 810/811 NUMBER HERE)
+Author: PARTNER NAME 1 (LAST 3 DIGITS OF 810/811 NUMBER HERE)
+Author: PARTNER NAME 2 (LAST 3 DIGITS OF 810/811 NUMBER HERE)
 
 [If you did any of the extra credit then please indicate that here.]
 ```
@@ -111,7 +111,7 @@ Author: YOUR NAME (LAST 3 DIGITS OF 810/811 NUMBER HERE)
 
 You may earn extra credit for each of the tasks listed below:
 
- 1. (10 points extra credit) Konami Code: Make it so that when the user enters 
+ 1. (5 points extra credit) Konami Code: Make it so that when the user enters 
  <code>↑</code><code>↑</code><code>↓</code><code>↓</code><code>←</code><code>→</code><code>←</code><code>→</code><code>B</code><code>A</code> on the keyboard (with the application in focus), a dialog box appears 
  with a picture of [Grumpy Cat](http://knowyourmeme.com/memes/grumpy-cat). I 
  recommend that you keep your picture of Grumpy Cat in the <code>resources</code> 
@@ -122,7 +122,7 @@ You may earn extra credit for each of the tasks listed below:
    screen. It should also be possible to enter the code multiple times while
    the program is being run.
 
- 2. (10 points extra credit) Modify your program so that a user can open files
+ 2. (5 points extra credit) Modify your program so that a user can open files
  from both the local file system and via a URL. When a user chooses to open a 
  file using the File -> Open -> ... menu, he or she is presented an option
  that is functionally similar to the following images:
@@ -202,7 +202,7 @@ BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
 ImageIO.write(bImage, "png", file);
 ```
 
-_NOTE:_ The code above is just a simple example and will probably need to be
+__NOTE:__ The code above is just a simple example and will probably need to be
 placed in a try-catch block.
 
 Here are the additional classes that are involved:
