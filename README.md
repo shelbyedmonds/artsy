@@ -58,10 +58,10 @@ Information about the implementation details can be found in the JavaDoc comment
 for the interface as well as inferred from the images contained elsewhere in this 
 document.
  
-   * (20 points) The <code>doRotate</code> method is implemented correctly.
+   * (10 points) The <code>doRotate</code> method is implemented correctly.
    * (10 points) The <code>doCheckers</code> method is implemented correctly.
-   * (5 points) The <code>doHorizontalStripes</code> method is implemented correctly.
-   * (5 points) The <code>doVerticalStripes</code> method is implemented correctly.
+   * (10 points) The <code>doHorizontalStripes</code> method is implemented correctly.
+   * (10 points) The <code>doVerticalStripes</code> method is implemented correctly.
 
 __Note:__ The actual grading rubric will involve testing each of the items 
 above in discrete parts so that partial credit can be earned.
@@ -211,6 +211,17 @@ Here are the additional classes that are involved:
  * <code>java.awt.image.BufferedImage</code>
  * <code>javafx.embed.swing.SwingFXUtils</code>
  * <code>javax.imageio.ImageIO</code>
+
+### Rotation Formula
+
+If you think of an image as a two-dimensional array of pixels (or colors), then
+a rotation is simply the repeated application of taking a pixel that originates
+in one location an placing it in another, according to a formula. Let <code>(x, y)</code> 
+denote a particular pixel. For rotation by an angle θ clockwise about the origin, 
+the new location of the pixel is <code>(xx, yy)</code> where <code>xx = x * cos(θ) + y * sin(θ)</code>
+and <code>yy = -x * sin(θ) + y * cos(θ)</code>. Special care needs to be taken to
+avoid out of bounds errors, since the new location of a pixel may not be within the
+rectangular area of the image. 
 
 ## Artsy Interface
 
