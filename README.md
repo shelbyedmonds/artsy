@@ -34,7 +34,7 @@ Part of software development is being given a goal but not necessarily being
 given instruction on all of the details needed to accomplish that goal. For example,
 even though image manipulation hasn't been covered in class, in order to complete this 
 project you are going to need to lookup how to load, interact with, and save images in Java.
-Also, since this is your first project with Swing, you will probably need to consult the 
+Also, since this is your first project with JavaFX, you will probably need to consult the 
 Oracle tutorials and definitely the Java SE 8 JavaDoc for assistance. 
 
 This project is also designed to help you better understand how object communicate
@@ -228,19 +228,13 @@ Here a closer look at the File menu:
 
 ![File Menu](http://i.imgur.com/7V90nli.png)
 
-When the user chooses to open an image, a <code>JFileChooser</code> should open
+When the user chooses to open an image, a <code>javafx.stage.FileChooser</code> should open
 up, allowing the user to browse for an image file, open it, and have that image
 display in the appropriate place. When the user chooses to save the result, a
-<code>JFileChooser</code> should open up, allowing the user to browse for a
+<code>FileChooser</code> should open up, allowing the user to browse for a
 location to save the result image. The actual image file should be written to
 the file location specified by the user. Also, when the user choose to exit, the
 entire application should immediately exit.
-
-__Note:__ There is a great tutorial on file chooser at
-[this](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) link. 
-
-__Note:__ To make things easier, save the Result image in one of the formats
-listed in the array returned by <code>ImageIO.getWriterFormatNames()</code>.
 
 After opening Image 1 and Image 2, the program should look something like this
 (these sample images are located in the <code>samples</code> directory in the
@@ -311,7 +305,8 @@ I would suggest breaking up your interface into multiple classes as needed in
 order to reduce repetition and increase code reuse.
 For example, you know that there are three images, each with their own "rotate" 
 and "reset" buttons.
-Think about creating a separate class that extends <code>JPanel</code>, containing
+Think about creating a separate class that extends one of the existing subclasses of
+<code>Pane</code> (e.g., <code>FlowPane</code>), containing
 GUI components to display an image, its label, as well as those two buttons. This
 class can also contain convenience methods for opening/saving a file, displaying 
 the image for that panel. You can also include the action listeners for that 
