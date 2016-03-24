@@ -221,7 +221,8 @@ denote a particular pixel. For rotation by an angle θ clockwise about the origi
 the new location of the pixel is <code>(xx, yy)</code> where <code>xx = x * cos(θ) + y * sin(θ)</code>
 and <code>yy = -x * sin(θ) + y * cos(θ)</code>. Special care needs to be taken to
 avoid out of bounds errors, since the new location of a pixel may not be within the
-rectangular area of the image. 
+rectangular area of the image. It is also worth noting that roating about the origin
+is not always the desired effect.
 
 ## Artsy Interface
 
