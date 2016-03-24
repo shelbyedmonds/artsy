@@ -1,14 +1,14 @@
 # CSCI 1302 - Artsy Project (cs1302-artsy)
 
 This repository contains the skeleton code for the Art project assigned
-to the students in the Fall 2015 CSCI 1302 classes at the 
+to the students in the Spring 2016 CSCI 1302 classes at the 
 University of Georgia. 
 
 **Please read the entirety of this file before beginning your project.**
 
 ## Due Date
 
-This project is due on Friday 2015-10-23 @ 11:55 PM.
+This project is due on SUN 2016-04-10 @ 11:55 PM.
 
 ## Academic Honesty
 
@@ -26,9 +26,9 @@ contained in the Resources section below in order to do your development on
 ![Artsy](http://i.imgur.com/YciJ2sl.png)
 
 Your goal is to implement a Java application that can stitch together multiple images in
-a number of "artsy" ways. This project will make use of interfaces and Java Swing.
+a number of "artsy" ways. This project will make use of interfaces and JavaFX.
 This will require you to lookup things in Javadoc and apply your knowledge of
-things like inheritance, polymorphism, anonymous classes and lambda expressions.
+things like inheritance, polymorphism, and lambda expressions.
 
 Part of software development is being given a goal but not necessarily being 
 given instruction on all of the details needed to accomplish that goal. For example,
@@ -40,8 +40,8 @@ Oracle tutorials and definitely the Java SE 8 JavaDoc for assistance.
 This project is also designed to help you better understand how object communicate
 with each other. Since GUI containers can be nested, you need to make sure that
 your components and listeners have communication access to objects the need in
-order to function correctly. While you can technically write your entire Swing-based
-GUI application entirely in the <code>createAndShowGUI</code> method, this will
+order to function correctly. While you can technically write your entire JavaFX-based
+GUI application entirely in the <code>start</code> method, this will
 make your code messy, hard to read, and result in lots of duplicate code.
 Before you write any code, you should plan out your containment heirarchy and
 design classes involving inheritance and polymorphism appropriately. Then, wehen
@@ -66,7 +66,7 @@ document.
 __Note:__ The actual grading rubric will involve testing each of the items 
 above in discrete parts so that partial credit can be earned.
 
-#### (60 points) Implement a graphical user interface in Swing.
+#### (60 points) Implement a graphical user interface in JavaFX.
 
 Your GUI should resemble and function like the one described in the 
 "User Interface" section of this document. 
@@ -77,16 +77,12 @@ Your GUI should resemble and function like the one described in the
 
 __Note:__ The entry point to your program must be in <code>cs1302.p2.Driver</code> class. 
 All that means is that the <code>cs1302.p2.Driver</code> class is used to run 
-your program. However, some code has been written in that class to help make your 
-code more thread-safe. Instead of creating and displaying your GUI in the 
-<code>main</code> method, you should do it in the <code>createAndShowGUI</code>
-method. There is already some code there to get you started.
+your program. 
 
 __Note:__ Your program should create a single instance of your <code>MyArtsy</code> class.
 You should pass around this object as an <code>Artsy</code> object (relying on 
 subsumption and polymorphism) so that your code can potentially use another
-developer's <code>Artsy</code> implementation. This is noted in the 
-<code>createAndShowGUI</code> method in the <code>Driver</code> class.
+developer's <code>Artsy</code> implementation.
 
 __Note:__ Your program should not crash. Exceptions and errors should be
 handled so that the user experience is not hindered. If an error or
@@ -105,7 +101,8 @@ your own information:
 ```markdown
 # Project Submission
 
-Author: YOUR NAME (LAST 3 DIGITS OF 810 NUMBER HERE)
+Author: YOUR NAME (LAST 3 DIGITS OF 810/811 NUMBER HERE)
+Author: YOUR NAME (LAST 3 DIGITS OF 810/811 NUMBER HERE)
 
 [If you did any of the extra credit then please indicate that here.]
 ```
@@ -328,7 +325,7 @@ The files for this project are hosted Github using <code>git</code>. They can be
 retrieved by cloning the repository found at <code>git://github.com/mepcotterell-cs1302/cs1302-artsy.git</code>. 
 For example, you can issue the following command to clone the repository:
 
-    $ git clone git://github.com/mepcotterell-cs1302/cs1302-artsy.git LastName-FirstName-p2
+    $ git clone git://github.com/mepcotterell-cs1302/cs1302-artsy.git LastName1-LastName2-p3
 
 As always, I suggest developing directly on <code>nike.cs.uga.edu</code> because
 this is where your project will be run and tested. Since <code>git</code> is 
@@ -370,24 +367,31 @@ In order to clean your project (remove compiled code), use the following command
 
 ## Submission Instructions
 
-You will still be submitting your project via <code>nike</code>. Make sure your 
-work is on <code>nike.cs.uga.edu</code> in a directory called 
-<code>LastName-FirstName-p1</code>, and, from within the parent directory, 
-execute the following command, depending on which section you are in:
+You will still be submitting your project via Nike. Make sure your project files
+are on <code>nike.cs.uga.edu</code>. Change into the parent directory of your
+project directory and let <code>LastName1-LastName2-p3</code> represent the name of your
+project directory in the instructions provided below. If you've followed the
+instructions provided in this document, then the name of your project directory
+is likely <code>LastName1-LastName2-p3</code>. While in your project parent
+directory, execute the following command, depending on which section you are in:
 
-### Supa' Mike's (Cotterell's) Section
+### CRN 26245
 
-    $ submit LastName-FirstName-p2 cs1302a
+    $ submit LastName1-LastName2-p3 cs1302a
 
-### Alothman's Section
+### CRN 26311
 
-    $ submit LastName-FirstName-p2 cs1302b
+    $ submit LastName1-LastName2-p3 cs1302b
 
-It is also a good idea to email a copy to yourself. To do this, simply execute 
+### CRN 36424
+
+    $ submit LastName1-LastName2-p3 cs1302c
+
+It is also a good idea to email a copy to yourself. To do this, simply execute
 the following command, replacing the email address with your email address:
 
-    $ tar zcvf LastName-FirstName-p2.tar.gz LastName-FirstName-p2
-    $ mutt -s "[cs1302] p2" -a LastName-FirstName-p2.tar.gz -- your@email.com < /dev/null
+    $ tar zcvf LastName1-LastName2-p3.tar.gz LastName1-LastName2-p3
+    $ mutt -s "[cs1302] p3" -a LastName1-LastName2-p3.tar.gz -- your@email.com < /dev/null
 
 ## Questions
 
