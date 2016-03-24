@@ -44,7 +44,7 @@ order to function correctly. While you can technically write your entire JavaFX-
 GUI application entirely in the <code>start</code> method, this will
 make your code messy, hard to read, and result in lots of duplicate code.
 Before you write any code, you should plan out your containment heirarchy and
-design classes involving inheritance and polymorphism appropriately. Then, wehen
+design classes involving inheritance and polymorphism appropriately. Then, when
 you go to write the code for your GUI, use the classes you designed, changing
 them as needed.
 
