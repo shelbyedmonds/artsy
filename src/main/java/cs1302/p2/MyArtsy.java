@@ -1,32 +1,27 @@
 package cs1302.p2;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
-
 import cs1302.effects.Artsy;
+import javafx.scene.image.Image;
 
 public class MyArtsy implements Artsy {
 
     @Override
-    public BufferedImage doCheckers(BufferedImage src1, BufferedImage src2, int size) {
+    public Image doCheckers(Image src1, Image src2, int size) {
 	return null;
     } // doCheckers
 
     @Override
-    public BufferedImage doHorizontalStripes(BufferedImage src1, BufferedImage src2, int height) {
+    public Image doHorizontalStripes(Image src1, Image src2, int height) {
 	return null;
     } // doHorizontalStripes
 
     @Override
-    public BufferedImage doRotate(BufferedImage src, double degrees) {
+    public Image doRotate(Image src, double degrees) {
 	return null;
     } // doRotate
 
     @Override
-    public BufferedImage doVerticalStripes(BufferedImage src1, BufferedImage src2, int width) {
+    public Image doVerticalStripes(Image src1, Image src2, int width) {
 	return null;
     } // doVerticalStripes
 
