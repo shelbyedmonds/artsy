@@ -207,10 +207,10 @@ placed in a try-catch block.
 
 Here are the additional classes that are involved:
 
- * <code>java.io.File</code>
- * <code>java.awt.image.BufferedImage</code>
- * <code>javafx.embed.swing.SwingFXUtils</code>
- * <code>javax.imageio.ImageIO</code>
+ * [<code>java.io.File</code>](https://docs.oracle.com/javase/8/docs/api/java/io/File.html)
+ * [<code>java.awt.image.BufferedImage</code>](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+ * [<code>javafx.embed.swing.SwingFXUtils</code>](https://docs.oracle.com/javase/8/javafx/api/javafx/embed/swing/SwingFXUtils.html)
+ * [<code>javax.imageio.ImageIO</code>](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html)
 
 ### Rotation Formula
 
