@@ -136,21 +136,25 @@ You may earn extra credit for each of the tasks listed below:
 ## Working with Images
 
 The are a couple differen classes that you must learn about to work with images at
-the pixel leve;:
+the pixel level:
 
- * The <code>javafx.scene.image.Image</code> class represents graphical images
+ * The [<code>javafx.scene.image.Image</code>](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/Image.html)
+   class represents graphical images
    and is used for loading images from a specified URL.
    
- * The <code>javafx.scene.image.WritableImage</code> class is a subclass of
+ * The [<code>javafx.scene.image.WritableImage</code>](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/WritableImage.html)
+   class is a subclass of
    <code>Image</code> that represents a custom graphical image that is constructed
    from pixels supplied by the application, and possibly from <code>PixelReader</code>
    objects from any number of sources, including images read from a file or URL.
 
- * The <code>javafx.scene.image.PixelReader</code> interface that defines methods
+ * The [<code>javafx.scene.image.PixelReader</code>](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/PixelReader.html)
+   interface that defines methods
    for retrieving the pixel data from an <code>Image</code> or other surface
    containing pixels.
 
- * The <code>javafx.scene.image.PixelWriter</code> interface that defines methods
+ * The [<code>javafx.scene.image.PixelWriter</code>](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/PixelWriter.html)
+   interface that defines methods
    for writing the pixel data of a <code>WritableImage</code> or other surface
    containing writable pixels.
 
