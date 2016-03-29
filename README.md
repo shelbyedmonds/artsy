@@ -3,7 +3,8 @@ change here
 This repository contains the skeleton code for the Art project assigned
 to the students in the Spring 2016 CSCI 1302 classes at the 
 University of Georgia. 
-changes 
+changes
+another change 
 **Please read the entirety of this file before beginning your project.**
 
 ## Due Date
