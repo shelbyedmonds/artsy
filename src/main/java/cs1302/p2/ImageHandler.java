@@ -1,7 +1,9 @@
 public class ImageHandler{
 
 
+	public ImageHandler(){
 
+	}
 
 
 
