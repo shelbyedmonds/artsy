@@ -1,5 +1,5 @@
 # CSCI 1302 - Artsy Project (cs1302-artsy)
-
+change here
 This repository contains the skeleton code for the Art project assigned
 to the students in the Spring 2016 CSCI 1302 classes at the 
 University of Georgia. 
