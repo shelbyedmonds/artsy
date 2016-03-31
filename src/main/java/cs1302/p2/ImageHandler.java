@@ -1,12 +1,12 @@
-javafx.scene.image.Image; 
-javafx.scene.image.WritableImage; 
-javafx.scene.image.PixelReader;
-javafx.scene.image.PixelWriter;
-javax.imageio.ImageIO;
-javafx.embed.swing.SwingFXUtils;
-java.awt.image.BufferedImage;
-java.io.File;
-
+import javafx.scene.image.Image; 
+import javafx.scene.image.WritableImage; 
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javax.imageio.ImageIO;
+import javafx.embed.swing.SwingFXUtils;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.InputStream;
 
 
 public class ImageHandler{
@@ -38,9 +38,14 @@ public class ImageHandler{
 	public Image saveImage(Image image){
 
 		File file = new File("image.png");
-		BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
-		ImageIO.write(bImage, "png", file);
-
+		try{
+			BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
+			ImageIO.write(bImage, "png", file);
+		}
+		catch(Exception e){
+			System.exit(0);
+		}	
+	return image;
 	}//saveImage
 
 	

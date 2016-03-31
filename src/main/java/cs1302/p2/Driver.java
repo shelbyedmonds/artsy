@@ -7,9 +7,16 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem; 
 import javafx.scene.control.SeparatorMenuItem;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.FlowPane;
 
 /**
  * This is the driver for this application.
@@ -36,14 +43,39 @@ public class Driver extends Application {
 	MenuItem saveItem= new MenuItem("Save Result As");
 	MenuItem exitItem= new MenuItem("Exit");
 	Menu openMenu= new Menu("Open");
+	SeparatorMenuItem bar= new SeparatorMenuItem();
+	SeparatorMenuItem bar2= new SeparatorMenuItem();
 	openMenu.getItems().addAll(picItem, pic2Item);
-	fileTab.getItems().addAll(openMenu, new SeparatorMenuItem(), saveItem,new SeperatorMenuItem(), exitItem);
-	menuBar.getMenus().add(fileTab);
+	fileTab.getItems().addAll(openMenu, bar, saveItem, bar2, exitItem);
+	myMenu.getMenus().add(fileTab);
 	
-	root.setTop(menuBar);
 	stage.setScene(scene);
-	stage.show();        
-    } // createAndShowGUI
+	stage.show();
+
+
+	Button checkers= new Button();
+	checkers.setLayoutX(100);
+	checkers.setLayoutY(80);
+	checkers.setText("Checkers");
+
+	Button horzStripes= new Button();
+	horzStripes.setLayoutX(100);
+	horzStripes.setLayoutY(80);
+	horzStripes.setText("Horizontal Stripes");
+
+	Button vertStripes= new Button();
+	vertStripes.setLayoutX(100);
+        vertStripes.setLayoutY(80);
+        vertStripes.setText("Vertical Stripes"); 
+
+
+	HBox buttonBox = new HBox(5);
+//	buttonBox.setPadding(1);
+	buttonBox.getChildren().addAll(checkers, horzStripes, vertStripes);
+
+	root.getChildren().addAll(myMenu,buttonBox);        
+    	stage.show();
+	} // createAndShowGUI
 
     public static void main(String[] args) {
         launch(args);
