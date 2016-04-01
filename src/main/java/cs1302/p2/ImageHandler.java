@@ -1,3 +1,5 @@
+package cs1302.p2;
+
 import javafx.scene.image.Image; 
 import javafx.scene.image.WritableImage; 
 import javafx.scene.image.PixelReader;
@@ -13,7 +15,7 @@ public class ImageHandler{
 	public Image myImage;
 
 	public ImageHandler(InputStream src ){
-		myImage= new Image(src);
+		myImage= new Image(src, 300, 300, false, false);
 	}
 
 	public Image copyImage(Image src) {
