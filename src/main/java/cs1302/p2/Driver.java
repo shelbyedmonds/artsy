@@ -100,24 +100,24 @@ public class Driver extends Application {
 	reset.setText("Reset");
 
 	Button rotate1= new Button();
-        rotate.setLayoutX(161);
-        rotate.setLayoutY(80);
-        rotate.setText("Rotate");
+        rotate1.setLayoutX(161);
+        rotate1.setLayoutY(80);
+        rotate1.setText("Rotate");
 
         Button reset1= new Button();
-        reset.setLayoutX(161);
-        reset.setLayoutY(80);
-        reset.setText("Reset");
+        reset1.setLayoutX(161);
+        reset1.setLayoutY(80);
+        reset1.setText("Reset");
 
 	Button rotate2= new Button();
-        rotate.setLayoutX(161);
-        rotate.setLayoutY(80);
-        rotate.setText("Rotate");
+        rotate2.setLayoutX(161);
+        rotate2.setLayoutY(80);
+        rotate2.setText("Rotate");
 
         Button reset2= new Button();
-        reset.setLayoutX(161);
-        reset.setLayoutY(80);
-        reset.setText("Reset");
+        reset2.setLayoutX(161);
+        reset2.setLayoutY(80);
+        reset2.setText("Reset");
 
 
 
@@ -134,13 +134,13 @@ public class Driver extends Application {
 
 	VBox left= new VBox(5);
 	Text t= new Text();
-	t.setText("Image 1");
+	t.setText("Image 1: Sample1.png");
 	ImageView pic2= new ImageView(img1.myImage);
 	left.getChildren().addAll(t, pic2, rotate, reset);
 	
 	VBox middle= new VBox(5);
 	Text t1= new Text();
-	t1.setText("Image 2");	
+	t1.setText("Image 2: Sample2.png");	
 	ImageView pic1= new ImageView(img2.myImage);
 	middle.getChildren().addAll(t1, pic1, rotate1, reset1);
 
