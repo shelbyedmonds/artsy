@@ -175,8 +175,9 @@ public class Driver extends Application {
                         FileChooser fileFinder1= new FileChooser();
                         fileFinder1.setTitle("Open Image 1");
                         fileFinder1.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-                        try{File myFile= fileFinder1.showOpenDialog(stage);
-                        InputStream newStream= new FileInputStream(myFile);
+                        try{
+			//File myFile= fileFinder1.showOpenDialog(stage);
+                        InputStream newStream= new FileInputStream(fileFinder1.showOpenDialog(stage));
                         ImageHandler X= new ImageHandler(newStream);
                         pic1= new ImageView(X.myImage);
                         left.getChildren();
@@ -202,21 +203,132 @@ public class Driver extends Application {
         });
 
 	checkers.setOnAction(actionEvent -> {
-                ArtObj.doCheckers(img1.myImage, img2.myImage, 300);
                 root.getChildren();
                 stage.show();
-                });
+                
+		BorderPane pane= new BorderPane();
+                Stage stageCheck= new Stage();
+                Scene sceneCheck= new Scene(pane, 200, 200);
+
+                stageCheck.setScene(sceneCheck);
+                stageCheck.setTitle("Checkers Options");
+                Label optLabel= new Label ("Please enter the desired checker width, in pixels.");
+                pane.setTop(optLabel);
+                pane.setAlignment(optLabel, Pos.CENTER);
+                TextField checkField= new TextField("10");
+                Button cancelButton= new Button("Cancel");
+                cancelButton.setLayoutX(161);
+                cancelButton.setLayoutY(80);
+                cancelButton.setOnAction(actionEvent2 -> stageCheck.close());
+                Button okButton= new Button("Ok");
+                okButton.setLayoutX(161);
+                okButton.setLayoutY(80);
+                okButton.setOnAction(actionEvent3 -> {
+                        Integer pix = Integer.parseInt(checkField.getText());
+                        ArtObj.doCheckers(img1.myImage, img2.myImage, pix);
+                        stageCheck.close();
+                        });
+
+                HBox bottom= new HBox();
+                bottom.setPadding(new Insets(10));
+                bottom.getChildren().addAll(cancelButton, okButton);
+
+                pane.setCenter(checkField);
+                pane.setAlignment(checkField, Pos.CENTER);
+                pane.setBottom(bottom);
+                pane.setAlignment(bottom, Pos.CENTER);
+
+
+                stageCheck.show();
+
+
+	});
 
 	horzStripes.setOnAction(actionEvent -> {
-                ArtObj.doHorizontalStripes(img1.myImage,img2.myImage, height);
                 root.getChildren();
                 stage.show();
+
+		BorderPane pane= new BorderPane();
+                Stage stageHorz= new Stage();
+                Scene sceneHorz= new Scene(pane, 200, 200);
+
+                stageHorz.setScene(sceneHorz);
+                stageHorz.setTitle("Horizontal Stripes Options");
+                Label optLabel= new Label ("Please enter the desired stripe height, in pixels.");
+                pane.setTop(optLabel);
+                pane.setAlignment(optLabel, Pos.CENTER);
+                TextField horzField= new TextField("10");
+                Button cancelButton= new Button("Cancel");
+                cancelButton.setLayoutX(161);
+                cancelButton.setLayoutY(80);
+                cancelButton.setOnAction(actionEvent2 -> stageHorz.close());
+                Button okButton= new Button("Ok");
+                okButton.setLayoutX(161);
+                okButton.setLayoutY(80);
+                okButton.setOnAction(actionEvent3 -> {
+                        Integer pix = Integer.parseInt(horzField.getText());
+                        ArtObj.doHorizontalStripes(img1.myImage, img2.myImage, pix);
+                        stageHorz.close();
+                        });
+
+                HBox bottom= new HBox();
+                bottom.setPadding(new Insets(10));
+                bottom.getChildren().addAll(cancelButton, okButton);
+
+                pane.setCenter(horzField);
+                pane.setAlignment(horzField, Pos.CENTER);
+                pane.setBottom(bottom);
+                pane.setAlignment(bottom, Pos.CENTER);
+
+
+                stageHorz.show();
+
+
+
+
                 });
 
 	vertStripes.setOnAction(actionEvent -> {
-                ArtObj.doVerticalStripes(img1.myImage, img2.myImage, width);
                 root.getChildren();
                 stage.show();
+
+		BorderPane pane= new BorderPane();
+		Stage stageVert= new Stage();
+		Scene sceneVert= new Scene(pane, 200, 200);
+
+		stageVert.setScene(sceneVert);
+		stageVert.setTitle("Vertical Stripes Options");
+		Label optLabel= new Label ("Please enter the desired stripe width, in pixels.");
+		pane.setTop(optLabel);
+		pane.setAlignment(optLabel, Pos.CENTER);
+		TextField vertField= new TextField("10");
+		Button cancelButton= new Button("Cancel");
+		cancelButton.setLayoutX(161);
+		cancelButton.setLayoutY(80);
+		cancelButton.setOnAction(actionEvent2 -> stageVert.close());
+		Button okButton= new Button("Ok");
+		okButton.setLayoutX(161);
+		okButton.setLayoutY(80);
+		okButton.setOnAction(actionEvent3 -> {
+			Integer pix = Integer.parseInt(vertField.getText());
+			ArtObj.doVerticalStripes(img1.myImage, img2.myImage, pix);
+			stageVert.close();
+			});	
+
+		HBox bottom= new HBox();
+                bottom.setPadding(new Insets(10));
+                bottom.getChildren().addAll(cancelButton, okButton);
+
+                pane.setCenter(vertField);
+                pane.setAlignment(vertField, Pos.CENTER);
+                pane.setBottom(bottom);
+                pane.setAlignment(bottom, Pos.CENTER);
+
+
+                stageVert.show();
+
+
+
 
                 });
 
