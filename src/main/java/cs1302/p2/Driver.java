@@ -174,14 +174,17 @@ public class Driver extends Application {
 	picItem.setOnAction(actionEvent -> {
                         FileChooser fileFinder1= new FileChooser();
                         fileFinder1.setTitle("Open Image 1");
-                        fileFinder1.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+                        fileFinder1.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png","*.bmp", "*.jpg", "*.gif"));
                         try{
-			//File myFile= fileFinder1.showOpenDialog(stage);
                         InputStream newStream= new FileInputStream(fileFinder1.showOpenDialog(stage));
                         ImageHandler X= new ImageHandler(newStream);
-                        pic1= new ImageView(X.myImage);
-                        left.getChildren();
-                        }
+                        ImageView pic= new ImageView(X.myImage);
+                        left.getChildren().clear();
+			left.getChildren().addAll(t, pic, rotate, reset);
+                        bottomHalf.getChildren().addAll(left, middle, right);
+        		root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+			stage.show();		
+			}
                         catch(Exception e){
                         System.out.println();
                         }
@@ -190,13 +193,19 @@ public class Driver extends Application {
 	 picItem2.setOnAction(actionEvent -> {
                         FileChooser fileFinder2= new FileChooser();
                         fileFinder2.setTitle("Open Image 1");
-                        fileFinder2.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-                        try{File myFile2= fileFinder2.showOpenDialog(stage);
-                        InputStream newStream2= new FileInputStream(myFile2);
+                        fileFinder2.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.bmp" ,"*.png", "*.jpg", "*.gif"));
+                        try{
+                        InputStream newStream2= new FileInputStream(fileFinder2.showOpenDialog(stage));
                         ImageHandler Y= new ImageHandler(newStream2);
-                        pic2= new ImageView(Y.myImage);
-                        middle.getChildren();
-                        }
+			ImageView pic= new ImageView(Y.myImage);
+                        middle.getChildren().clear();
+                        middle.getChildren().addAll(t1, pic, rotate1, reset1);
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+
+			}
                         catch(Exception e){
                         System.out.println();
                         }
