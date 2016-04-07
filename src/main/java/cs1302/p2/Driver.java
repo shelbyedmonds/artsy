@@ -35,7 +35,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.control.Label;
 import javafx.geometry.Pos;
-
+import java.io.File;
 
 
 /**
@@ -148,13 +148,13 @@ public class Driver extends Application {
 
         VBox left= new VBox(5);
         Text t= new Text();
-        t.setText("Image 1:");
+        t.setText("Image 1");
         pic1= new ImageView(img1.myImage);
         left.getChildren().addAll(t, pic1, rotate, reset);
 
         VBox middle= new VBox(5);
         Text t1= new Text();
-        t1.setText("Image 2: ");
+        t1.setText("Image 2");
         pic2= new ImageView(img2.myImage);
         middle.getChildren().addAll(t1, pic2, rotate1, reset1);
 
