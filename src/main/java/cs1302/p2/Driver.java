@@ -36,7 +36,8 @@ import javafx.scene.control.TextInputControl;
 import javafx.scene.control.Label;
 import javafx.geometry.Pos;
 import java.io.File;
-
+import javafx.scene.image.WritableImage;
+import javafx.scene.image.Image;
 
 /**
  * This is the driver for this application.
@@ -212,8 +213,8 @@ public class Driver extends Application {
         });
 
 	checkers.setOnAction(actionEvent -> {
-                root.getChildren();
-                stage.show();
+                //root.getChildren();
+                //stage.show();
                 
 		BorderPane pane= new BorderPane();
                 Stage stageCheck= new Stage();
@@ -232,13 +233,8 @@ public class Driver extends Application {
                 Button okButton= new Button("Ok");
                 okButton.setLayoutX(161);
                 okButton.setLayoutY(80);
-                okButton.setOnAction(actionEvent3 -> {
-                        Integer pix = Integer.parseInt(checkField.getText());
-                        ArtObj.doCheckers(img1.myImage, img2.myImage, pix);
-                        stageCheck.close();
-                        });
 
-                HBox bottom= new HBox();
+		       HBox bottom= new HBox();
                 bottom.setPadding(new Insets(10));
                 bottom.getChildren().addAll(cancelButton, okButton);
 
@@ -250,6 +246,21 @@ public class Driver extends Application {
 
                 stageCheck.show();
 
+
+                okButton.setOnAction(actionEvent3 -> {
+                        Integer pix = Integer.parseInt(checkField.getText());
+			stageCheck.close();
+                        Image newImg= ArtObj.doCheckers(img1.myImage, img2.myImage, pix);
+                        pic3= new ImageView(newImg);
+			right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+			bottomHalf.getChildren().addAll(left, middle, right);
+			root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+                        });
 
 	});
 
@@ -360,8 +371,19 @@ public class Driver extends Application {
         	saveButton.setLayoutY(80);
 		saveButton.setOnAction(actionEvent2 -> {
 			Double degrees1= Double.parseDouble(rotField.getText());
-			ArtObj.doRotate(img1.myImage, degrees1);
+			Image imgX= ArtObj.doRotate(img1.myImage, degrees1);
 			stage2.close();
+
+			pic1= new ImageView(imgX);
+                        left.getChildren().clear();
+                        left.getChildren().addAll(t, pic1, rotate, reset);
+                        bottomHalf.getChildren().clear();
+			bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+			root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+			
 		});	
 
 
