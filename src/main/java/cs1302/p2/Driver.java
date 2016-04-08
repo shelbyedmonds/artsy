@@ -1,3 +1,4 @@
+
 package cs1302.p2;
 
 import cs1302.effects.Artsy;
@@ -38,16 +39,22 @@ import javafx.geometry.Pos;
 import java.io.File;
 import javafx.scene.image.WritableImage;
 import javafx.scene.image.Image;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import javafx.embed.swing.SwingFXUtils;
 
-/**
- * This is the driver for this application.
- */
+
+
 public class Driver extends Application {
 
 	public static ImageView pic1;
 	public static ImageView pic2;
-    	public static ImageView  pic3;
-	
+    	public static ImageView pic3;
+	public static Image img1;
+	public static Image img2;
+	public static Image img3;
+	public static ImageHandler X;
+	public static ImageHandler Y;
 	@Override
     public void start(Stage stage) {
 	
@@ -59,7 +66,6 @@ public class Driver extends Application {
 	ImageHandler img1= new ImageHandler(is1);
         ImageHandler img2= new ImageHandler(is2);
 	ImageHandler img3= new ImageHandler(is3);	
-
 
         FlowPane root = new FlowPane(Orientation.VERTICAL);
 	root.setColumnHalignment(HPos.LEFT);
@@ -80,7 +86,9 @@ public class Driver extends Application {
 
 	MenuItem picItem2= new MenuItem("Open Image 2");
 	MenuItem saveItem= new MenuItem("Save Result As");
-	
+	saveItem.setOnAction(actionEvent -> {
+			System.out.println("ADD IN SAVING STUFF HERE!");
+		});
 	MenuItem exitItem= new MenuItem("Exit");
 	exitItem.setOnAction(actionEvent -> Platform.exit());
 	
@@ -178,10 +186,10 @@ public class Driver extends Application {
                         fileFinder1.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png","*.bmp", "*.jpg", "*.gif"));
                         try{
                         InputStream newStream= new FileInputStream(fileFinder1.showOpenDialog(stage));
-                        ImageHandler X= new ImageHandler(newStream);
-                        ImageView pic= new ImageView(X.myImage);
+                        X= new ImageHandler(newStream);
+                        pic1= new ImageView(X.myImage);
                         left.getChildren().clear();
-			left.getChildren().addAll(t, pic, rotate, reset);
+			left.getChildren().addAll(t, pic1, rotate, reset);
                         bottomHalf.getChildren().addAll(left, middle, right);
         		root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
 			stage.show();		
@@ -197,10 +205,10 @@ public class Driver extends Application {
                         fileFinder2.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.bmp" ,"*.png", "*.jpg", "*.gif"));
                         try{
                         InputStream newStream2= new FileInputStream(fileFinder2.showOpenDialog(stage));
-                        ImageHandler Y= new ImageHandler(newStream2);
-			ImageView pic= new ImageView(Y.myImage);
+                        Y= new ImageHandler(newStream2);
+			pic2= new ImageView(Y.myImage);
                         middle.getChildren().clear();
-                        middle.getChildren().addAll(t1, pic, rotate1, reset1);
+                        middle.getChildren().addAll(t1, pic2, rotate1, reset1);
                         bottomHalf.getChildren().addAll(left, middle, right);
                         root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
                         stage.show();
@@ -213,9 +221,9 @@ public class Driver extends Application {
         });
 
 	checkers.setOnAction(actionEvent -> {
-                //root.getChildren();
-                //stage.show();
-                
+		root.getChildren();
+		stage.show();
+	
 		BorderPane pane= new BorderPane();
                 Stage stageCheck= new Stage();
                 Scene sceneCheck= new Scene(pane, 200, 200);
@@ -234,7 +242,7 @@ public class Driver extends Application {
                 okButton.setLayoutX(161);
                 okButton.setLayoutY(80);
 
-		       HBox bottom= new HBox();
+		HBox bottom= new HBox();
                 bottom.setPadding(new Insets(10));
                 bottom.getChildren().addAll(cancelButton, okButton);
 
@@ -250,7 +258,7 @@ public class Driver extends Application {
                 okButton.setOnAction(actionEvent3 -> {
                         Integer pix = Integer.parseInt(checkField.getText());
 			stageCheck.close();
-                        Image newImg= ArtObj.doCheckers(img1.myImage, img2.myImage, pix);
+                        Image newImg= ArtObj.doCheckers(pic1.getImage(), pic2.getImage(), pix);
                         pic3= new ImageView(newImg);
 			right.getChildren().clear();
                         right.getChildren().addAll(t3, pic3, rotate2, reset2);
@@ -287,8 +295,19 @@ public class Driver extends Application {
                 okButton.setLayoutY(80);
                 okButton.setOnAction(actionEvent3 -> {
                         Integer pix = Integer.parseInt(horzField.getText());
-                        ArtObj.doHorizontalStripes(img1.myImage, img2.myImage, pix);
+                        
+
                         stageHorz.close();
+                        Image newImg= ArtObj.doHorizontalStripes(pic1.getImage(), pic2.getImage(), pix);
+                        pic3= new ImageView(newImg);
+                        right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
                         });
 
                 HBox bottom= new HBox();
@@ -330,9 +349,20 @@ public class Driver extends Application {
 		okButton.setLayoutX(161);
 		okButton.setLayoutY(80);
 		okButton.setOnAction(actionEvent3 -> {
+			
 			Integer pix = Integer.parseInt(vertField.getText());
-			ArtObj.doVerticalStripes(img1.myImage, img2.myImage, pix);
-			stageVert.close();
+                        stageVert.close();
+                        Image newImg= ArtObj.doVerticalStripes(pic1.getImage(), pic2.getImage(), pix);
+                        pic3= new ImageView(newImg);
+                        right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+
 			});	
 
 		HBox bottom= new HBox();
@@ -371,7 +401,7 @@ public class Driver extends Application {
         	saveButton.setLayoutY(80);
 		saveButton.setOnAction(actionEvent2 -> {
 			Double degrees1= Double.parseDouble(rotField.getText());
-			Image imgX= ArtObj.doRotate(img1.myImage, degrees1);
+			Image imgX= ArtObj.doRotate(pic1.getImage(), degrees1);
 			stage2.close();
 
 			pic1= new ImageView(imgX);
@@ -426,9 +456,23 @@ public class Driver extends Application {
                 saveButton2.setLayoutX(161);
                 saveButton2.setLayoutY(80);
 		saveButton2.setOnAction(actionEvent2 -> {
-                        Double degrees1= Double.parseDouble(rotField2.getText());
-                        ArtObj.doRotate(img1.myImage, degrees1);
+                        
+			Double degrees1= Double.parseDouble(rotField2.getText());
+                        Image imgY= ArtObj.doRotate(pic2.getImage(), degrees1);
                         stage3.close();
+
+                        pic2= new ImageView(imgY);
+                        middle.getChildren().clear();
+                        middle.getChildren().addAll(t1, pic2, rotate1, reset1);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+
+
+
                 });		
 
 
@@ -472,9 +516,22 @@ public class Driver extends Application {
                 saveButton3.setLayoutX(161);
                 saveButton3.setLayoutY(80);
 		saveButton3.setOnAction(actionEvent2 -> {
-                        Double degrees1= Double.parseDouble(rotField3.getText());
-                        ArtObj.doRotate(img1.myImage, degrees1);
+                	Double degrees1= Double.parseDouble(rotField3.getText());
+                        Image imgZ= ArtObj.doRotate(pic3.getImage(), degrees1);
                         stage4.close();
+
+                        pic3= new ImageView(imgZ);
+                        right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+		
+
+
                 });		
 
                 Button cancelButton3= new Button ("Cancel");
@@ -498,7 +555,52 @@ public class Driver extends Application {
 
 		});
 
+	reset.setOnAction(actionEvent -> {
+		pic1=new ImageView (X.myImage);
+                left.getChildren().clear();
+                left.getChildren().addAll(t, pic1, rotate, reset);
+                bottomHalf.getChildren().clear();
+                bottomHalf.getChildren().addAll(left, middle, right);
+                root.getChildren().clear();
+                root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                stage.show();
+		
 
+
+		});
+
+	reset1.setOnAction(actionEvent -> {
+
+		
+                pic2=new ImageView (Y.myImage);
+                middle.getChildren().clear();
+                middle.getChildren().addAll(t1, pic2, rotate1, reset1);
+                bottomHalf.getChildren().clear();
+                bottomHalf.getChildren().addAll(left, middle, right);
+                root.getChildren().clear();
+                root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                stage.show();
+
+
+		});
+
+
+
+	reset2.setOnAction(actionEvent -> {
+	
+		//img3= new ImageHandler(is3);
+		pic3=new ImageView (img3.myImage);
+		right.getChildren().clear();
+                right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                bottomHalf.getChildren().clear();
+                bottomHalf.getChildren().addAll(left, middle, right);
+                root.getChildren().clear();
+                root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                stage.show();
+
+
+
+		});
 
 	stage.show();
 
@@ -509,10 +611,19 @@ public class Driver extends Application {
                 Platform.exit();
         }
 	} // createAndShowGUI
-
- 
-    public static void main(String[] args) {
+	
+public static void main(String[] args) {
         launch(args);
     } // main
 
 } // Driver
+
+
+
+
+
+
+
+
+
+

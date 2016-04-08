@@ -39,7 +39,7 @@ public class ImageHandler{
 
 	public Image saveImage(Image image){
 
-		File file = new File("image.png");
+		File file = new File("MyArtProject.png");
 		try{
 			BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
 			ImageIO.write(bImage, "png", file);

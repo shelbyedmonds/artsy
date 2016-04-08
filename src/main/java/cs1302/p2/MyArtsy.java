@@ -16,18 +16,18 @@ public class MyArtsy implements Artsy {
 
         Image image1 = doVerticalStripes(src1, src2, size);
         Image image2 = doVerticalStripes(src2, src1, size);
-        return (Image) doHorizontalStripes(image1, image2, size);
+        return  doHorizontalStripes(image1, image2, size);
     } // doCheckers
 
     @Override
     public Image doHorizontalStripes(Image src1, Image src2, int height) {
         int picWidth = (int) src1.getWidth();
         int picHeight = (int) src1.getHeight();
-
+	
         WritableImage ret = new WritableImage(picWidth, picHeight);
         PixelReader src1Reader = src1.getPixelReader();
         PixelReader src2Reader = src2.getPixelReader();
-        PixelWriter writer = ret.getPixelWriter();
+        PixelWriter writer =ret.getPixelWriter();
 
         for (int y = 0; y < picHeight; y++ ) {
                 for (int x = 0; x < picWidth; x++) {
@@ -39,7 +39,7 @@ public class MyArtsy implements Artsy {
                         }
                 }
         }
-        return (Image) ret;
+        return  ret;
     } // doHorizontalStripes
 	
 	@Override
@@ -65,7 +65,7 @@ public class MyArtsy implements Artsy {
                         }
                 }
         }
-        return (Image) ret;
+        return  ret;
 
 
     } // doRotate
@@ -90,7 +90,7 @@ public class MyArtsy implements Artsy {
                         }
                 }
         }
-        return (Image) ret;
+        return  ret;
     } // doVerticalStripes
 
 } // MyArtsy
