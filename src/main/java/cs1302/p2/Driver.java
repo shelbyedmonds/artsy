@@ -50,9 +50,9 @@ public class Driver extends Application {
 	public static ImageView pic1;
 	public static ImageView pic2;
     	public static ImageView pic3;
-	public static Image img1;
-	public static Image img2;
-	public static Image img3;
+	public static ImageHandler img1;
+	public static ImageHandler img2;
+	public static ImageHandler img3;
 	public static ImageHandler X;
 	public static ImageHandler Y;
 	@Override
@@ -63,9 +63,9 @@ public class Driver extends Application {
         InputStream is1 = new FileInputStream("/home/ugrads/edmonds/artsy/resources/default.png");
         InputStream is2= new FileInputStream("/home/ugrads/edmonds/artsy/resources/default.png");
         InputStream is3= new FileInputStream("/home/ugrads/edmonds/artsy/resources/default.png");
-	ImageHandler img1= new ImageHandler(is1);
-        ImageHandler img2= new ImageHandler(is2);
-	ImageHandler img3= new ImageHandler(is3);	
+	img1= new ImageHandler(is1);
+        img2= new ImageHandler(is2);
+	img3= new ImageHandler(is3);	
 
         FlowPane root = new FlowPane(Orientation.VERTICAL);
 	root.setColumnHalignment(HPos.LEFT);
@@ -571,7 +571,7 @@ public class Driver extends Application {
 
 	reset.setOnAction(actionEvent -> {
 		pic1=new ImageView (X.myImage);
-                left.getChildren().clear();
+		left.getChildren().clear();
                 left.getChildren().addAll(t, pic1, rotate, reset);
                 bottomHalf.getChildren().clear();
                 bottomHalf.getChildren().addAll(left, middle, right);
@@ -584,10 +584,8 @@ public class Driver extends Application {
 		});
 
 	reset1.setOnAction(actionEvent -> {
-
-		
-                pic2=new ImageView (Y.myImage);
-                middle.getChildren().clear();
+		pic2=new ImageView (Y.myImage);
+		middle.getChildren().clear();
                 middle.getChildren().addAll(t1, pic2, rotate1, reset1);
                 bottomHalf.getChildren().clear();
                 bottomHalf.getChildren().addAll(left, middle, right);
