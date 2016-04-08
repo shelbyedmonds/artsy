@@ -43,8 +43,6 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import javafx.embed.swing.SwingFXUtils;
 
-
-
 public class Driver extends Application {
 
 	public static ImageView pic1;
