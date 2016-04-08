@@ -60,7 +60,7 @@ public class MyArtsy implements Artsy {
                                 (y - (src.getHeight() / 2)) * Math.sin(Math.toRadians(degrees))) + (src.getWidth() / 2));
                         yy = (int) (((x - (src.getWidth() / 2)) * Math.sin(Math.toRadians(degrees)) +
                                 (y - (src.getHeight() / 2)) * Math.cos(Math.toRadians(degrees))) + (src.getHeight() / 2));
-                        if (xx < ret.getWidth() && yy < ret.getHeight()) {
+                        if (xx < ret.getWidth() && yy < ret.getHeight() && xx>0 && yy>0) {
                                 writer.setArgb(xx, yy, reader.getArgb(x, y));
                         }
                 }
