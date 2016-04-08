@@ -42,7 +42,9 @@ import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import javafx.embed.swing.SwingFXUtils;
-
+import java.lang.Object;
+import java.awt.image.BufferedImage;
+	
 public class Driver extends Application {
 
 	public static ImageView pic1;
@@ -85,7 +87,21 @@ public class Driver extends Application {
 	MenuItem picItem2= new MenuItem("Open Image 2");
 	MenuItem saveItem= new MenuItem("Save Result As");
 	saveItem.setOnAction(actionEvent -> {
-			System.out.println("ADD IN SAVING STUFF HERE!");
+		Image image= pic3.getImage();
+		FileChooser fileFinder= new FileChooser();
+		fileFinder.setTitle("Save Image As");
+		//fileFinder.showSaveDialog(stage)
+		//File file= fileFinder.showSaveDialog(stage);
+		File file = new File(fileFinder.showSaveDialog(stage) +".png");
+		BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
+		try{
+		ImageIO.write(bImage, "png", file);	
+		}
+		catch(Exception e){
+			System.out.println("unable to save image!");
+		}
+
+
 		});
 	MenuItem exitItem= new MenuItem("Exit");
 	exitItem.setOnAction(actionEvent -> Platform.exit());
