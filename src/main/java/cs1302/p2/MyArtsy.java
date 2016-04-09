@@ -9,6 +9,15 @@ import javafx.scene.image.WritableImage;
 
 public class MyArtsy implements Artsy {
 
+
+/**This method creates a checkered output that takes pixels from
+ * both images.
+ *
+ * @param src1 Image
+ * @param src2 Image
+ * @param size int
+ * @return Image
+ */
     @Override
     public Image doCheckers(Image src1, Image src2, int size) {
         int picWidth = (int) src1.getWidth();
@@ -19,6 +28,15 @@ public class MyArtsy implements Artsy {
         return  doHorizontalStripes(image1, image2, size);
     } // doCheckers
 
+
+/**This method creates an output with horizontal stripes taken from 
+ * pixels of both images
+ *
+ * @param src1 Image
+ * @param src2 Image
+ * @param height int
+ * @return Image
+ */
     @Override
     public Image doHorizontalStripes(Image src1, Image src2, int height) {
         int picWidth = (int) src1.getWidth();
@@ -41,7 +59,14 @@ public class MyArtsy implements Artsy {
         }
         return  ret;
     } // doHorizontalStripes
-	
+
+
+/**This method creates an output that is a rotated form of the original image.
+ *
+ * @param src Image
+ * @param degrees double
+ * @return Image
+ */	
 	@Override
     public Image doRotate(Image src, double degrees) {
         int picWidth = (int) src.getWidth();
@@ -70,6 +95,15 @@ public class MyArtsy implements Artsy {
 
     } // doRotate
 	
+
+/**This method creates an output with vertical stripes made from pixels
+ * of both images.
+ *
+ * @param src1 Image
+ * @param src2 Image
+ * @param width int
+ * @return Image
+ */
 	@Override
     public Image doVerticalStripes(Image src1, Image src2, int width) {
         int picWidth = (int) src1.getWidth();

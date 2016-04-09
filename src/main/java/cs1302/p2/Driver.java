@@ -56,7 +56,16 @@ public class Driver extends Application {
 	public static ImageHandler X;
 	public static ImageHandler Y;
 	@Override
-    public void start(Stage stage) {
+    
+/**This method is the body of the photo editor program, it sets up the stage and calls 
+ * different methods to make parts of the stage functional.
+ *
+ *
+ * @param stage Stage 
+ * @return void
+ */
+
+	public void start(Stage stage) {
 	
 	try{
 	MyArtsy ArtObj= new MyArtsy();
@@ -623,7 +632,12 @@ public class Driver extends Application {
                 Platform.exit();
         }
 	} // createAndShowGUI
-	
+
+/**This is the main method of the program that launches the program.
+ *
+ * @param args String []
+ * @return void
+ */	
 public static void main(String[] args) {
         launch(args);
     } // main

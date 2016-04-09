@@ -14,10 +14,23 @@ import java.io.InputStream;
 public class ImageHandler{
 	public Image myImage;
 
+
+/**This is the constructor for the image handler class
+ * that makes an image object for our source path.
+ *
+ * @param src InputStream
+ * @return ImageHandler
+ */
 	public ImageHandler(InputStream src ){
 		myImage= new Image(src, 300, 300, false, false);
 	}
 
+
+/**This method copies the image and returns the copy of it.
+ *
+ * @param src Image
+ * @return Image
+ */
 	public Image copyImage(Image src) {
 
     	int width = (int) src.getWidth();
@@ -37,6 +50,11 @@ public class ImageHandler{
 
 	} // copyImage
 
+/**This method saves a copy of the image and returns the image as well.
+ *
+ * @param image Image
+ * @return Image
+ */
 	public Image saveImage(Image image){
 
 		File file = new File("MyArtProject.png");
