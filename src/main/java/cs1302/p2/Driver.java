@@ -406,7 +406,8 @@ public class Driver extends Application {
                 });
 
 	rotate.setOnAction(actionEvent -> {
-                root.getChildren();
+          
+		root.getChildren();
                 stage.show();
 		
 		BorderPane bp= new BorderPane();
@@ -422,30 +423,13 @@ public class Driver extends Application {
 		Button saveButton= new Button("Save");
 		saveButton.setLayoutX(161);
         	saveButton.setLayoutY(80);
-		saveButton.setOnAction(actionEvent2 -> {
-			Double degrees1= Double.parseDouble(rotField.getText());
-			Image imgX= ArtObj.doRotate(pic1.getImage(), degrees1);
-			stage2.close();
-
-			pic1= new ImageView(imgX);
-                        left.getChildren().clear();
-                        left.getChildren().addAll(t, pic1, rotate, reset);
-                        bottomHalf.getChildren().clear();
-			bottomHalf.getChildren().addAll(left, middle, right);
-                        root.getChildren().clear();
-			root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
-                        stage.show();
-
-			
-		});	
 
 
-	
+		
 		Button cancelButton= new Button ("Cancel");
 		cancelButton.setLayoutX(161);
         	cancelButton.setLayoutY(80);
-		cancelButton.setOnAction(actionEvent3 -> stage2.close());
-
+		
 		HBox bottomRot= new HBox();
 		bottomRot.setPadding(new Insets(10));
 		bottomRot.getChildren().addAll(cancelButton, saveButton);
@@ -455,12 +439,40 @@ public class Driver extends Application {
 		bp.setBottom(bottomRot);
 		bp.setAlignment(bottomRot, Pos.CENTER);
 		
-		
+			
 		stage2.show();	
-                
+
+		cancelButton.setOnAction(actionEvent3 -> stage2.close());
+
+			
+		saveButton.setOnAction(actionEvent2 -> {
+			try {
+				Double degrees1 = Double.parseDouble(rotField.getText());
+				Image imgX= ArtObj.doRotate(pic1.getImage(), degrees1);
+                	        stage2.close();
+
+                	        ImageView newPic = new ImageView(imgX);
+                	        left.getChildren().clear();
+				pic1.setImage(newPic.getImage());
+                	        left.getChildren().addAll(t, pic1, rotate, reset);
+                	        bottomHalf.getChildren().clear();
+                	        bottomHalf.getChildren().addAll(left, middle, right);
+                	        root.getChildren().clear();
+                	        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                	        stage.show();
+
+			}
+			catch (Exception e) {
+				boxLabel.setText("Invalid Input. Try again.");
+				bp.setTop(boxLabel);
+				stage2.show();
+			}
+		});	
+
 
 		});
 
+	
 	 rotate1.setOnAction(actionEvent -> {
                 root.getChildren();
                 stage.show();
@@ -478,33 +490,13 @@ public class Driver extends Application {
                 Button saveButton2= new Button("Save");
                 saveButton2.setLayoutX(161);
                 saveButton2.setLayoutY(80);
-		saveButton2.setOnAction(actionEvent2 -> {
-                        
-			Double degrees1= Double.parseDouble(rotField2.getText());
-                        Image imgY= ArtObj.doRotate(pic2.getImage(), degrees1);
-                        stage3.close();
-
-                        pic2= new ImageView(imgY);
-                        middle.getChildren().clear();
-                        middle.getChildren().addAll(t1, pic2, rotate1, reset1);
-                        bottomHalf.getChildren().clear();
-                        bottomHalf.getChildren().addAll(left, middle, right);
-                        root.getChildren().clear();
-                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
-                        stage.show();
-
-
-
-
-                });		
-
-
-                Button cancelButton2= new Button ("Cancel");
+		
+		Button cancelButton2= new Button ("Cancel");
                 cancelButton2.setLayoutX(161);
                 cancelButton2.setLayoutY(80);
                 cancelButton2.setOnAction(actionEvent3 -> stage3.close());
 
-		HBox bottomRot2= new HBox();
+                HBox bottomRot2= new HBox();
                 bottomRot2.setPadding(new Insets(10));
                 bottomRot2.getChildren().addAll(cancelButton2, saveButton2);
 
@@ -518,7 +510,35 @@ public class Driver extends Application {
                 stage3.show();
 
 
-                });
+                
+
+			
+		saveButton2.setOnAction(actionEvent2 -> {
+			try {
+				Double degrees1 = Double.parseDouble(rotField2.getText());
+				Image imgX= ArtObj.doRotate(pic2.getImage(), degrees1);
+                	        stage3.close();
+
+                	        ImageView newPic = new ImageView(imgX);
+                	        middle.getChildren().clear();
+				pic2.setImage(newPic.getImage());
+                	        middle.getChildren().addAll(t1, pic2, rotate1, reset1);
+                	        bottomHalf.getChildren().clear();
+                	        bottomHalf.getChildren().addAll(left, middle, right);
+                	        root.getChildren().clear();
+                	        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                	        stage.show();
+
+			}
+			catch (Exception e) {
+				boxLabel2.setText("Invalid Input. Try again.");
+				bp2.setTop(boxLabel2);
+				stage3.show();
+			}
+		});	
+
+});
+
 
 	rotate2.setOnAction(actionEvent -> {
                 root.getChildren();
@@ -538,31 +558,13 @@ public class Driver extends Application {
                 Button saveButton3= new Button("Save");
                 saveButton3.setLayoutX(161);
                 saveButton3.setLayoutY(80);
-		saveButton3.setOnAction(actionEvent2 -> {
-                	Double degrees1= Double.parseDouble(rotField3.getText());
-                        Image imgZ= ArtObj.doRotate(pic3.getImage(), degrees1);
-                        stage4.close();
 
-                        pic3= new ImageView(imgZ);
-                        right.getChildren().clear();
-                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
-                        bottomHalf.getChildren().clear();
-                        bottomHalf.getChildren().addAll(left, middle, right);
-                        root.getChildren().clear();
-                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
-                        stage.show();
-
-		
-
-
-                });		
-
-                Button cancelButton3= new Button ("Cancel");
+		Button cancelButton3= new Button ("Cancel");
                 cancelButton3.setLayoutX(161);
                 cancelButton3.setLayoutY(80);
-         	cancelButton3.setOnAction(actionEvent3 -> stage4.close());
+                cancelButton3.setOnAction(actionEvent3 -> stage4.close());
 
-	        HBox bottomRot3= new HBox();
+                HBox bottomRot3= new HBox();
                 bottomRot3.setPadding(new Insets(10));
                 bottomRot3.getChildren().addAll(cancelButton3, saveButton3);
 
@@ -576,7 +578,33 @@ public class Driver extends Application {
                 stage4.show();
 
 
-		});
+                
+
+		
+		saveButton3.setOnAction(actionEvent2 -> {
+                        try {
+                                Double degrees1 = Double.parseDouble(rotField3.getText());
+                                Image imgX= ArtObj.doRotate(pic3.getImage(), degrees1);
+                                stage4.close();
+
+                                ImageView newPic = new ImageView(imgX);
+                                right.getChildren().clear();
+				pic3.setImage(newPic.getImage());
+                                right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                                bottomHalf.getChildren().clear();
+                                bottomHalf.getChildren().addAll(left, middle, right);
+                                root.getChildren().clear();
+                                root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                                stage.show();
+
+                        }
+                        catch (Exception e) {
+                                boxLabel3.setText("Invalid Input. Try again.");
+                                bp3.setTop(boxLabel3);
+                                stage4.show();
+                        }
+                });
+	});
 
 	reset.setOnAction(actionEvent -> {
 		pic1=new ImageView (X.myImage);

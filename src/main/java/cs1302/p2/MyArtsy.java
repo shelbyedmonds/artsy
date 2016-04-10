@@ -6,6 +6,7 @@ import java.lang.Math;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
 
 public class MyArtsy implements Artsy {
 
@@ -75,7 +76,7 @@ public class MyArtsy implements Artsy {
         WritableImage ret = new WritableImage(picWidth, picHeight);
         PixelReader reader = src.getPixelReader();
         PixelWriter writer = ret.getPixelWriter();
-
+	PixelReader retReader = ret.getPixelReader();
         int xx;
         int yy;
 
@@ -90,11 +91,103 @@ public class MyArtsy implements Artsy {
                         }
                 }
         }
+	for (int i = 0; i < picWidth; i++) {
+		for (int j = 0; j < picHeight; j++) {
+			if (retReader.getColor(i, j) == Color.WHITE) {
+				writer.setArgb(i, j, getColorAverage(ret, i, j));
+			}
+		}
+	}	
         return  ret;
 
 
     } // doRotate
 	
+
+	private int getColorAverage(WritableImage ret, int i, int j) {
+		int average = 0;
+		int count = 0;
+		PixelReader retReader = ret.getPixelReader();
+	/*	if ((i-1) >= 0) {
+			average += retReader.getArgb((i-1), j);
+			count++;
+		}
+		if ((i+1) < 300) {
+			average += retReader.getArgb((i+1), j);
+			count++;
+		}
+		if ((j-1) >= 0) {
+			average += retReader.getArgb(i, (j-1));
+			count++;
+		}
+		if ((j+1) < 300) {
+			average += retReader.getArgb(i, (j+1));
+			count++;
+		}
+		if(((i+1)<300) && ((j+1)<300)){
+			average += retReader.getArgb((i+1), (j+1));
+                        count++;
+		*/
+		try {
+			if (retReader.getArgb((i-1), (j-1)) != 255) {	
+				average += retReader.getArgb((i-1), (j-1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if (retReader.getArgb((i-1), j) != 255) {
+				average += retReader.getArgb((i-1), j);
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if (retReader.getArgb((i-1), (j+1)) != 255) {
+				average += retReader.getArgb((i-1), (j+1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if (retReader.getArgb(i, (j-1))!=255){
+				average += retReader.getArgb(i, (j-1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if(retReader.getArgb(i, (j+1))!=255){
+				average += retReader.getArgb(i, (j+1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if(retReader.getArgb((i+1), (j-1))!=255){
+				average += retReader.getArgb((i+1), (j-1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if(retReader.getArgb((i+1), j)!=255){
+				average += retReader.getArgb((i+1), j);
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		try {
+			if(retReader.getArgb((i+1), (j+1))!=255){
+				average += retReader.getArgb((i+1), (j+1));
+				count++;
+			}
+		}
+		catch (Exception e) { }
+		
+		return average / count;
+	}	
+		
 
 /**This method creates an output with vertical stripes made from pixels
  * of both images.
