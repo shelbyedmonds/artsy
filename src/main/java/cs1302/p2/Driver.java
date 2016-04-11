@@ -44,6 +44,7 @@ import java.io.IOException;
 import javafx.embed.swing.SwingFXUtils;
 import java.lang.Object;
 import java.awt.image.BufferedImage;
+import java.lang.IllegalArgumentException;
 	
 public class Driver extends Application {
 
@@ -65,7 +66,7 @@ public class Driver extends Application {
  * @return void
  */
 
-	public void start(Stage stage) {
+	public void start(Stage stage) throws Exception {
 	
 	try{
 	MyArtsy ArtObj= new MyArtsy();
@@ -218,7 +219,6 @@ public class Driver extends Application {
 			stage.show();		
 			}
                         catch(Exception e){
-                        System.out.println();
                         }
         });
 
@@ -239,7 +239,6 @@ public class Driver extends Application {
 
 			}
                         catch(Exception e){
-                        System.out.println();
                         }
         });
 
@@ -279,7 +278,11 @@ public class Driver extends Application {
 
 
                 okButton.setOnAction(actionEvent3 -> {
-                        Integer pix = Integer.parseInt(checkField.getText());
+			try{
+		        Integer pix = Integer.parseInt(checkField.getText());
+			
+			if(pix<=0 || pix>300)
+				throw new Exception();
 			stageCheck.close();
                         Image newImg= ArtObj.doCheckers(pic1.getImage(), pic2.getImage(), pix);
                         pic3= new ImageView(newImg);
@@ -290,7 +293,13 @@ public class Driver extends Application {
 			root.getChildren().clear();
                         root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
                         stage.show();
+			}
+			catch(Exception e){
+			optLabel.setText("Invalid input, try again.");
+                        pane.setTop(optLabel);
+                        stageCheck.show();		
 
+			}
                         });
 
 	});
@@ -316,24 +325,8 @@ public class Driver extends Application {
                 Button okButton= new Button("Ok");
                 okButton.setLayoutX(161);
                 okButton.setLayoutY(80);
-                okButton.setOnAction(actionEvent3 -> {
-                        Integer pix = Integer.parseInt(horzField.getText());
-                        
-
-                        stageHorz.close();
-                        Image newImg= ArtObj.doHorizontalStripes(pic1.getImage(), pic2.getImage(), pix);
-                        pic3= new ImageView(newImg);
-                        right.getChildren().clear();
-                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
-                        bottomHalf.getChildren().clear();
-                        bottomHalf.getChildren().addAll(left, middle, right);
-                        root.getChildren().clear();
-                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
-                        stage.show();
-
-                        });
-
-                HBox bottom= new HBox();
+                
+		HBox bottom= new HBox();
                 bottom.setPadding(new Insets(10));
                 bottom.getChildren().addAll(cancelButton, okButton);
 
@@ -346,6 +339,29 @@ public class Driver extends Application {
                 stageHorz.show();
 
 
+		okButton.setOnAction(actionEvent3 -> {
+			try{
+                        Integer pix = Integer.parseInt(horzField.getText());
+                        if(pix<=0 ||pix>300)
+				throw new Exception();
+
+                        stageHorz.close();
+                        Image newImg= ArtObj.doHorizontalStripes(pic1.getImage(), pic2.getImage(), pix);
+                        pic3= new ImageView(newImg);
+                        right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+			}
+			catch(Exception e){
+			optLabel.setText("Invalid input, try again.");
+			pane.setTop(optLabel);
+                        stageHorz.show();
+                        }
+		});
 
 
                 });
@@ -371,22 +387,6 @@ public class Driver extends Application {
 		Button okButton= new Button("Ok");
 		okButton.setLayoutX(161);
 		okButton.setLayoutY(80);
-		okButton.setOnAction(actionEvent3 -> {
-			
-			Integer pix = Integer.parseInt(vertField.getText());
-                        stageVert.close();
-                        Image newImg= ArtObj.doVerticalStripes(pic1.getImage(), pic2.getImage(), pix);
-                        pic3= new ImageView(newImg);
-                        right.getChildren().clear();
-                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
-                        bottomHalf.getChildren().clear();
-                        bottomHalf.getChildren().addAll(left, middle, right);
-                        root.getChildren().clear();
-                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
-                        stage.show();
-
-
-			});	
 
 		HBox bottom= new HBox();
                 bottom.setPadding(new Insets(10));
@@ -400,6 +400,33 @@ public class Driver extends Application {
 
                 stageVert.show();
 
+		okButton.setOnAction(actionEvent3 -> {
+		
+
+
+			try{	
+			Integer pix = Integer.parseInt(vertField.getText());
+                        if(pix<=0 || pix>300)
+				throw new Exception(); 
+			
+			stageVert.close();
+                        Image newImg= ArtObj.doVerticalStripes(pic1.getImage(), pic2.getImage(), pix);
+                        pic3.setImage(newImg);
+                        right.getChildren().clear();
+                        right.getChildren().addAll(t3, pic3, rotate2, reset2);
+                        bottomHalf.getChildren().clear();
+                        bottomHalf.getChildren().addAll(left, middle, right);
+                        root.getChildren().clear();
+                        root.getChildren().addAll(myMenu, buttonBox, bottomHalf);
+                        stage.show();
+
+			}
+			catch(Exception e){
+				optLabel.setText("Invalid input, try again.");
+				pane.setTop(optLabel);
+				stageVert.show();	
+			}
+			});	
 
 
 

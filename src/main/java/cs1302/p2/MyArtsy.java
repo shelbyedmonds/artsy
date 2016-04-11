@@ -86,106 +86,97 @@ public class MyArtsy implements Artsy {
                                 (y - (src.getHeight() / 2)) * Math.sin(Math.toRadians(degrees))) + (src.getWidth() / 2));
                         yy = (int) (((x - (src.getWidth() / 2)) * Math.sin(Math.toRadians(degrees)) +
                                 (y - (src.getHeight() / 2)) * Math.cos(Math.toRadians(degrees))) + (src.getHeight() / 2));
-                        if (xx < ret.getWidth() && yy < ret.getHeight() && xx>0 && yy>0) {
+                        if (xx < ret.getWidth() && yy < ret.getHeight() && xx>=0 && yy>=0) {
                                 writer.setArgb(xx, yy, reader.getArgb(x, y));
-                        }
-                }
+                     	}
+		}
         }
-	for (int i = 0; i < picWidth; i++) {
-		for (int j = 0; j < picHeight; j++) {
-			if (retReader.getColor(i, j) == Color.WHITE) {
-				writer.setArgb(i, j, getColorAverage(ret, i, j));
+	for (int i = 0; i < 300; i++) {
+		for (int j = 0; j < 300; j++) {
+			if(retReader.getArgb(i, j) == 0) {
+				writer.setColor(i, j, getColorAverage(ret, i, j));
+				//writer.setArgb(i, j, getColorAverage(ret, i, j));
 			}
 		}
-	}	
+	}
         return  ret;
 
 
     } // doRotate
 	
-
-	private int getColorAverage(WritableImage ret, int i, int j) {
-		int average = 0;
+/**This method returns the color average for the surrounding pixels.
+ *
+ * @param ret WritableImage
+ * @param i int
+ * @param j int
+ *
+ * @return Color
+ */
+	public  Color getColorAverage(WritableImage ret, int i, int j) {
 		int count = 0;
+		int red=0;
+		int green= 0;
+		int blue= 0;
 		PixelReader retReader = ret.getPixelReader();
-	/*	if ((i-1) >= 0) {
-			average += retReader.getArgb((i-1), j);
+		if((j-1)>=0){
+			if ((i-1) >= 0) {
+				red += retReader.getColor((i-1), (j-1)).getRed();
+				green+= retReader.getColor((i-1), (j-1)).getGreen();
+                                blue+=retReader.getColor((i-1), (j-1)).getBlue();
+			//	red += retReader.getArgb((i-1), (j-1));
+
+				count++;
+			}
+			if ((i+1) < 300) {
+				red+=retReader.getColor((i+1), (j-1)).getRed();
+                                green+= retReader.getColor((i+1), (j-1)).getGreen();
+                                blue+=retReader.getColor((i+1), (j-1)).getBlue();
+			//	red+=retReader.getArgb((i+1), (j-1));
+				count++;	
+			}
+                	red+=retReader.getColor((i), (j-1)).getRed();
+			green+= retReader.getColor((i), (j-1)).getGreen();
+			blue+=retReader.getColor((i), (j-1)).getBlue(); 
+		//	red+=retReader.getArgb((i), (j-1));
 			count++;
+                }
+		if ((i-1) >= 0) {
+			if ((j+1) < 300) {
+				red+=retReader.getColor((i-1), (j+1)).getRed();
+                                green+= retReader.getColor((i-1), (j+1)).getGreen();
+                                blue+=retReader.getColor((i-1), (j+1)).getBlue();
+		//		red+=retReader.getArgb((i-1), (j+1));
+				count++;
+			}
+			red+=retReader.getColor((i-1), (j)).getRed();
+                        green+= retReader.getColor((i-1), (j)).getGreen();
+                        blue+=retReader.getColor((i-1), (j)).getBlue();
+		//		red+=retReader.getArgb((i-1), (j));
+				count++;
 		}
 		if ((i+1) < 300) {
-			average += retReader.getArgb((i+1), j);
-			count++;
-		}
-		if ((j-1) >= 0) {
-			average += retReader.getArgb(i, (j-1));
-			count++;
+			if ((j+1) < 300) {
+				red+=retReader.getColor((i+1), (j+1)).getRed();
+                                green+= retReader.getColor((i+1), (j+1)).getGreen();
+                                blue+=retReader.getColor((i+1), (j+1)).getBlue();
+			//	red+=retReader.getArgb((i+1), (j+1));	
+				count++;
+			}
+			red+=retReader.getColor((i+1), (j)).getRed();
+                        green+= retReader.getColor((i+1), (j)).getGreen();
+                        blue+=retReader.getColor((i+1), (j)).getBlue();
+		//		red+=retReader.getArgb((i+1), (j));
+				count++;
 		}
 		if ((j+1) < 300) {
-			average += retReader.getArgb(i, (j+1));
-			count++;
-		}
-		if(((i+1)<300) && ((j+1)<300)){
-			average += retReader.getArgb((i+1), (j+1));
-                        count++;
-		*/
-		try {
-			if (retReader.getArgb((i-1), (j-1)) != 255) {	
-				average += retReader.getArgb((i-1), (j-1));
+			red+=retReader.getColor((i), (j+1)).getRed();
+                        green+= retReader.getColor((i), (j+1)).getGreen();
+                        blue+=retReader.getColor((i), (j+1)).getBlue();
+		//		red+=retReader.getArgb((i), (j+1));
 				count++;
-			}
 		}
-		catch (Exception e) { }
-		try {
-			if (retReader.getArgb((i-1), j) != 255) {
-				average += retReader.getArgb((i-1), j);
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if (retReader.getArgb((i-1), (j+1)) != 255) {
-				average += retReader.getArgb((i-1), (j+1));
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if (retReader.getArgb(i, (j-1))!=255){
-				average += retReader.getArgb(i, (j-1));
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if(retReader.getArgb(i, (j+1))!=255){
-				average += retReader.getArgb(i, (j+1));
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if(retReader.getArgb((i+1), (j-1))!=255){
-				average += retReader.getArgb((i+1), (j-1));
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if(retReader.getArgb((i+1), j)!=255){
-				average += retReader.getArgb((i+1), j);
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		try {
-			if(retReader.getArgb((i+1), (j+1))!=255){
-				average += retReader.getArgb((i+1), (j+1));
-				count++;
-			}
-		}
-		catch (Exception e) { }
-		
-		return average / count;
+		Color average = Color.rgb((red/count),(green/count), (blue/count));
+		return average;
 	}	
 		
 
